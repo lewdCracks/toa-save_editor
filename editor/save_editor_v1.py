@@ -257,7 +257,7 @@ class Ui_MainWindow(object):
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Achievements", "", ".json Files (*.json)")
                             self.achievements = self.load_external_json(self.path_to)
                         except Exception as error: 
-                            print('3.1', error)
+                            print('3', error)
 
                     self.dic['achievements'] = self.achievements
 
@@ -282,11 +282,35 @@ class Ui_MainWindow(object):
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Events", "", ".json Files (*.json)")
                             self.events = self.load_external_json(self.path_to)
                         except Exception as error: 
-                            print('3.2', error)
+                            print('3', error)
 
                     self.dic['events'] = self.events
 
                     self.save_external_to_file(self.dic, self.profile[0])
+
+                else:
+                    pass
+            except Exception as error:
+                print(error)
+        else:
+            print(self.last_display)
+
+        if self.last_display > -1:
+            try:
+                if os.path.isfile(self.profile[0]):
+                    self.dic2 = self.load_external_json(self.profile[0])
+                    try:
+                        self.pervert = self.load_external_json("toa_pervert.json")
+                    except:
+                        try:
+                            self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Toa pervert Characters", "", ".json Files (*.json)")
+                            self.pervert = self.load_external_json(self.path_to)
+                        except Exception as error: 
+                            print('3', error)
+
+                    self.dic2['enemyKnowledge'] = self.pervert
+
+                    self.save_external_to_file(self.dic2, self.profile[0])
 
                 else:
                     pass
@@ -311,9 +335,9 @@ class Ui_MainWindow(object):
                         self.save_dict_to_file()
 
                     except Exception as error:
-                        print('1.1',error)
+                        print('1',error)
             except:
-                print('2.1', error)
+                print('2', error)
         else:
             print(self.last_display)
 
@@ -335,9 +359,9 @@ class Ui_MainWindow(object):
                         self.save_dict_to_file()
 
                     except Exception as error:
-                        print('1.2',error)
+                        print('1',error)
             except:
-                print('2.2', error)
+                print('2', error)
         else:
             print(self.last_display)
 
