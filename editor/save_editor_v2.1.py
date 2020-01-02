@@ -152,6 +152,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # buttons / bars / items
         self.value_bar.returnPressed.connect(self.update_variable)
         self.max_skill_btn.clicked.connect(self.max_skills)
         self.unlock_achievements_btn.clicked.connect(self.unlock_achievements)
@@ -161,6 +162,7 @@ class Ui_MainWindow(object):
         self.back_btn.clicked.connect(lambda param: self.update_path(True))
         self.save_btn.clicked.connect(self.save_dict_to_file)
         self.value_bar.returnPressed.connect(self.update_variable)
+        self.search_bar.textChanged.connect(lambda *param: self.display_variables(self.last_display, 2))
         self.list_values.itemDoubleClicked.connect(lambda param: self.update_path(False))
 
         # tags = dictionary path, which is added to search index but saved separately
@@ -206,7 +208,7 @@ class Ui_MainWindow(object):
             self.save = json.load(open(self.savefile))
             self.path.append(self.save)
 
-            self.display_variables(1)
+            self.display_variables(1, 1)
             self.last_display = 1
         except:
             pass
@@ -236,12 +238,12 @@ class Ui_MainWindow(object):
         try:
             self.convert_to = type(self.path[-1][self.current_var[0][-1]])
             self.path[-1][self.current_var[0][-1]] = self.convert_to(self.value_bar.text())
-            self.display_variables(self.last_display)
+            self.display_variables(self.last_display, 1)
         except:
             try:
                 self.convert_to = type(self.current_dic[self.current_var[1]])
                 self.current_dic[self.current_var[1]] = self.convert_to(self.value_bar.text())
-                self.display_variables(self.last_display)
+                self.display_variables(self.last_display, 1)
             except Exception as error:
                 print(error)
 
@@ -340,9 +342,7 @@ class Ui_MainWindow(object):
                 print('2', error)
         else:
             print(self.last_display)
-
-   
-        
+ 
     def max_skills(self):
         if self.last_display > -1:
             try:
@@ -366,23 +366,50 @@ class Ui_MainWindow(object):
             print(self.last_display)
 
 
-    def display_variables(self, typ):
+    def display_variables(self, typ, ref):
         self.list_values.clear()
-        if typ == 1:
-            for self.value in self.path[-1].keys():
-                if str(type(self.path[-1][self.value])) == "<class 'int'>" or str(type(self.path[-1][self.value])) == "<class 'str'>" or str(type(self.path[-1][self.value])) == "<class 'bool'>":
-                    self.list_values.addItem(f"{self.value} : {self.path[-1][self.value]}")
-                else:
-                    self.list_values.addItem(f"{self.value} : >")
-        elif typ == 2:
-            for self.value in self.path[-1]:
-                if str(type(self.value)) == "<class 'dict'>":
-                    for self.dvalue in self.value.keys():
-                        self.list_values.addItem(f"{str(self.dvalue)} : {self.value[self.dvalue]}")
-                else:
-                    pass
+        if ref == 1:
+            if typ == 1:
+                for self.value in self.path[-1].keys():
+                    if str(type(self.path[-1][self.value])) == "<class 'int'>" or str(type(self.path[-1][self.value])) == "<class 'str'>" or str(type(self.path[-1][self.value])) == "<class 'bool'>":
+                        self.list_values.addItem(f"{self.value} : {self.path[-1][self.value]}")
+                    else:
+                        self.list_values.addItem(f"{self.value} : >")
+            elif typ == 2:
+                for self.value in self.path[-1]:
+                    if str(type(self.value)) == "<class 'dict'>":
+                        for self.dvalue in self.value.keys():
+                            self.list_values.addItem(f"{str(self.dvalue)} : {self.value[self.dvalue]}")
+                    else:
+                        pass
+            else:
+                pass
+        elif ref == 2:
+            if typ == 1:
+                for self.value in self.path[-1].keys():
+                    if str(type(self.path[-1][self.value])) == "<class 'int'>" or str(type(self.path[-1][self.value])) == "<class 'str'>" or str(type(self.path[-1][self.value])) == "<class 'bool'>":
+                        if self.search_bar.text() in self.value:
+                            self.list_values.addItem(f"{self.value} : {self.path[-1][self.value]}")
+                        else:
+                            pass
+                    else:
+                        if self.search_bar.text() in self.value:
+                            self.list_values.addItem(f"{self.value} : >")
+                        else:
+                            pass
+            elif typ == 2:
+                for self.value in self.path[-1]:
+                    if self.search_bar.text() in self.value:
+                        if str(type(self.value)) == "<class 'dict'>":
+                            for self.dvalue in self.value.keys():
+                                self.list_values.addItem(f"{str(self.dvalue)} : {self.value[self.dvalue]}")
+                        else:
+                            pass
+                    else:
+                        pass   
         else:
             pass
+
 
     def update_path(self, back):
         if not back:
@@ -391,12 +418,12 @@ class Ui_MainWindow(object):
             try:
                 if str(type(self.path[-1][self.item])) == "<class 'dict'>":
                     self.path.append(self.path[-1][self.item])
-                    self.display_variables(1)
+                    self.display_variables(1, 1)
                     self.last_display = 1
                 elif str(type(self.path[-1][self.item])) == "<class 'list'>":
                     self.path.append(self.path[-1][self.item])
                     self.last_display = 2
-                    self.display_variables(2)
+                    self.display_variables(2, 1)
                 else:
                     self.current_var[0] = [self.item]
                     self.display_var = self.path[-1][self.current_var[0][-1]]
@@ -422,7 +449,7 @@ class Ui_MainWindow(object):
 
         elif len(self.path) > 1:
             self.path.remove(self.path[-1])
-            self.display_variables(1)
+            self.display_variables(1, 1)
             self.last_display = 1
         else:
             print("Can't go back any futher.")
