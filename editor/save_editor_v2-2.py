@@ -253,11 +253,11 @@ class Ui_MainWindow(object):
                 if os.path.isfile(self.profile[0]):
                     self.dic = self.load_external_json(self.profile[0])
                     try:
-                        self.achievements = self.load_external_json("achievements.json")
+                        self.achievements = self.load_external_json("data.json")['achievements']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Achievements", "", ".json Files (*.json)")
-                            self.achievements = self.load_external_json(self.path_to)
+                            self.achievements = self.load_external_json(self.path_to)['achievements']
                         except Exception as error: 
                             print('3', error)
 
@@ -278,11 +278,11 @@ class Ui_MainWindow(object):
                 if os.path.isfile(self.profile[0]):
                     self.dic = self.load_external_json(self.profile[0])
                     try:
-                        self.events = self.load_external_json("events.json")
+                        self.events = self.load_external_json("data.json")['events']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Events", "", ".json Files (*.json)")
-                            self.events = self.load_external_json(self.path_to)
+                            self.events = self.load_external_json(self.path_to)['events']
                         except Exception as error: 
                             print('3', error)
 
@@ -302,11 +302,11 @@ class Ui_MainWindow(object):
                 if os.path.isfile(self.profile[0]):
                     self.dic2 = self.load_external_json(self.profile[0])
                     try:
-                        self.pervert = self.load_external_json("toa_pervert.json")
+                        self.pervert = self.load_external_json("data.json")['enemyKnowledge']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Toa pervert Characters", "", ".json Files (*.json)")
-                            self.pervert = self.load_external_json(self.path_to)
+                            self.pervert = self.load_external_json(self.path_to)['enemyKnowledge']
                         except Exception as error: 
                             print('3', error)
 
@@ -324,15 +324,15 @@ class Ui_MainWindow(object):
     def reset_perks(self):
         if self.last_display > -1:
             try:
-                self.current_path = os.path.join(os.getcwd(), "toa_perks.json")
+                self.current_path = os.path.join(os.getcwd(), "data.json")
                 if os.path.isfile(self.current_path):
-                    self.perks = self.load_external_json(self.current_path)
+                    self.perks = self.load_external_json(self.current_path)['perks']
                     self.save['player']['perks'] = self.perks
                     self.save_dict_to_file()
                 else:
                     try:
                         self.current_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Perks", "", ".json Files (*.json)")
-                        self.perks = self.load_external_json(self.current_path)
+                        self.perks = self.load_external_json(self.current_path)['perks']
                         self.save['player']['perks'] = self.perks
                         self.save_dict_to_file()
 
@@ -346,15 +346,15 @@ class Ui_MainWindow(object):
     def max_skills(self):
         if self.last_display > -1:
             try:
-                self.current_path = os.path.join(os.getcwd(), "toa_skills.json")
+                self.current_path = os.path.join(os.getcwd(), "data.json")
                 if os.path.isfile(self.current_path):
-                    self.skills = self.load_external_json(self.current_path)
+                    self.skills = self.load_external_json(self.current_path)['skills']
                     self.save['player']['skills'] = self.skills
                     self.save_dict_to_file()
                 else:
                     try:
                         self.current_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Skills", "", ".json Files (*.json)")
-                        self.skills = self.load_external_json(self.current_path)
+                        self.skills = self.load_external_json(self.current_path)['skills']
                         self.save['player']['skills'] = self.skills
                         self.save_dict_to_file()
 
