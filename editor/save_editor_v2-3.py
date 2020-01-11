@@ -158,10 +158,11 @@ class Ui_MainWindow(object):
         self.unlock_achievements_btn.clicked.connect(self.unlock_achievements)
         self.unlock_encounters_btn.clicked.connect(self.unlock_events)
         self.reset_btn.clicked.connect(self.reset_perks)
+        self.add_btn.clicked.connect(self.add_empty)
         self.open_btn.clicked.connect(self.open_save)
         self.back_btn.clicked.connect(lambda param: self.update_path(True))
         self.save_btn.clicked.connect(self.save_dict_to_file)
-        self.value_bar.returnPressed.connect(self.update_variable)
+        self.value_bar.textChanged.connect(self.update_variable)
         self.search_bar.textChanged.connect(lambda *param: self.display_variables(self.last_display, 2))
         self.list_values.itemDoubleClicked.connect(lambda param: self.update_path(False))
 
@@ -174,7 +175,6 @@ class Ui_MainWindow(object):
         self.path = []
         self.current_var = ['']
 
-        self.search_index = {}
         self.desciptions = {}
         
 
@@ -185,16 +185,16 @@ class Ui_MainWindow(object):
         self.open_btn.setText(_translate("MainWindow", "Open Save"))
         self.back_btn.setText(_translate("MainWindow", "Back"))
         self.value_bar.setPlaceholderText(_translate("MainWindow", "value:"))
-        self.description_box.setPlaceholderText(_translate("MainWindow", "Click add to save your own description..."))
+        self.description_box.setPlaceholderText(_translate("MainWindow", "As you type/edit it will auto-save the description..."))
         self.unlock_achievements_btn.setText(_translate("MainWindow", "Unlock Achievements"))
         self.search_bar.setPlaceholderText(_translate("MainWindow", "Search"))
         self.unlock_encounters_btn.setText(_translate("MainWindow", "Unlock Events"))
         self.path_label.setText(_translate("MainWindow", "PATHS: "))
         self.variable_label.setText(_translate("MainWindow", "VARIABLE EDITOR: "))
         self.max_skill_btn.setText(_translate("MainWindow", "Max Skills"))
-        self.reset_btn.setText(_translate("MainWindow", "Reset Perks"))
+        self.reset_btn.setText(_translate("MainWindow", "Max Perks"))
         self.add_btn.setText(_translate("MainWindow", "Add"))
-        self.tag_bar.setPlaceholderText(_translate("MainWindow", "Tags - separate with commas - add button saves them ~"))
+        self.tag_bar.setPlaceholderText(_translate("MainWindow", "Tags - separate with commas ~"))
     
     def open_save(self):
         try:
@@ -348,13 +348,13 @@ class Ui_MainWindow(object):
             try:
                 self.current_path = os.path.join(os.getcwd(), "data.json")
                 if os.path.isfile(self.current_path):
-                    self.skills = self.load_external_json(self.current_path)['skills']
+                    self.skills = self.load_external_json(self.current_path)['skills-max']
                     self.save['player']['skills'] = self.skills
                     self.save_dict_to_file()
                 else:
                     try:
                         self.current_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Skills", "", ".json Files (*.json)")
-                        self.skills = self.load_external_json(self.current_path)['skills']
+                        self.skills = self.load_external_json(self.current_path)['skills-max']
                         self.save['player']['skills'] = self.skills
                         self.save_dict_to_file()
 
@@ -364,7 +364,40 @@ class Ui_MainWindow(object):
                 print('2', error)
         else:
             print(self.last_display)
+    
+    def add_empty(self):
+        if self.last_display > -1:
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.skills = self.load_external_json(self.current_path)['skills']
+                    for self.key in self.skills.keys():
+                        if self.key in self.save['player']['skills'].keys():
+                            pass
+                        else:
+                            self.save['player']['skills'][self.key] = 0
+                    self.save_dict_to_file()
+                else:
+                        print('[1-1]', "Couldn't resolve path to data.json")
+            except:
+                print('2', error)
 
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.skills = self.load_external_json(self.current_path)['perks']
+                    for self.key in self.skills.keys():
+                        if self.key in self.save['player']['perks'].keys():
+                            pass
+                        else:
+                            self.save['player']['perks'][self.key] = 0
+                    self.save_dict_to_file()
+                else:
+                        print('[1-2]', "Couldn't resolve path to data.json")
+            except:
+                print('2', error)
+        else:
+            print(self.last_display)
 
     def display_variables(self, typ, ref):
         self.list_values.clear()
