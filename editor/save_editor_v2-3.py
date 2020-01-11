@@ -1,1304 +1,502 @@
-{
-    "mapId": "DEFAULT",
-    "timestamp": "Jan 4, 2020 1:19:50 PM",
-    "context": "ENCOUNTER",
-    "returnContext": "WORLD_MAP",
-    "mode": "SKIRMISH",
-    "newMusic": "ORC_MUSIC",
-    "newAmbient": "NULL_MUSIC",
-    "worldSeed": 2405,
-    "sceneCode": {
-        "items": [ 461, 460, 335, 334, 333, 332, 331, 330, 329, 328, 327, 326, 325, 324, 323, 322, 321, 319, 318, 317, 316, 315, 314, 313, 312, 311, 310, 288, 287, 286, 285, 284, 283, 282, 281, 280, 279, 278, 277, 276, 275, 274, 273, 272, 271, 270, 269, 268, 267, 266, 265, 264, 263, 262, 261, 260, 259, 258, 257, 256, 255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240, 239, 238, 237, 236, 235, 234, 233, 232, 231, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-        "size": 86
-    },
-    "encounterCode": "ORC",
-    "nodeCode": 31,
-    "battleConsole": [
-        [
-            {
-                "class": "com.majalis.save.MutationResult"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "Brigand adopts a Full Nelson stance! ",
-                "type": "STANCE",
-                "stance": "FULL_NELSON"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "Brigand used Full Nelson!"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "Grapple strength is 2! Winner!"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "You are forced into Full Nelsoned stance!",
-                "type": "STANCE",
-                "stance": "FULL_NELSON_BOTTOM"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "You used Tempo Attack on Brigand!"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "Grip on weapon is increased by 2!"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "The blow strikes for 7 damage!",
-                "mod": -7,
-                "type": "HEALTH"
-            },
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "It opens wounds! +1 blood loss!",
-                "mod": 1,
-                "type": "BLEED"
-            }
-        ],
-        [
-            {
-                "class": "com.majalis.save.MutationResult",
-                "text": "\"Got ya!\" she says, as she manhandles you from behind."
-            }
-        ],
-        []
-    ],
-    "visitedNodeList": {
-        "size": 56,
-        "keyTable": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 10000, 17, 18, 19, 20, 21, 22, 23, 24, 0, 0, 0, 0, 0, 0, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 0, 0, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, 1001, 0, 0, 0, 0, 0, 1007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
-        "valueTable": [
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "visibility": 5,
-                "nodeCode": 1,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 193,
-                "visibility": 2,
-                "nodeCode": 2,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 828,
-                "visibility": 3,
-                "nodeCode": 3,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 3,
-                "randomVal": 131,
-                "visibility": 5,
-                "nodeCode": 4,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 5,
-                "randomVal": 644,
-                "visibility": 5,
-                "nodeCode": 5,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 1,
-                "randomVal": 78,
-                "visibility": 5,
-                "nodeCode": 6,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 340,
-                "visibility": 2,
-                "nodeCode": 7,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 584,
-                "visibility": 2,
-                "nodeCode": 8,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 254,
-                "visibility": 3,
-                "nodeCode": 9,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 8,
-                "randomVal": 85,
-                "visibility": 5,
-                "nodeCode": 10,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 9,
-                "randomVal": 360,
-                "visibility": 5,
-                "nodeCode": 11,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 786,
-                "visibility": 3,
-                "nodeCode": 12,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 492,
-                "visibility": 2,
-                "nodeCode": 13,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 849,
-                "visibility": 2,
-                "nodeCode": 14,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 400,
-                "visibility": 3,
-                "nodeCode": 15,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 677,
-                "visibility": 2,
-                "nodeCode": 10000,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 27,
-                "visibility": 1,
-                "nodeCode": 17,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 99,
-                "visibility": 2,
-                "nodeCode": 18,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 878,
-                "visibility": 2,
-                "nodeCode": 19,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 430,
-                "visibility": 1,
-                "nodeCode": 20,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 924,
-                "visibility": 2,
-                "nodeCode": 21,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 877,
-                "visibility": 2,
-                "nodeCode": 22,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 306,
-                "visibility": 1,
-                "nodeCode": 23,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 450,
-                "nodeCode": 24,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 28,
-                "randomVal": 822,
-                "visibility": 5,
-                "nodeCode": 31,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 27,
-                "randomVal": 999,
-                "visibility": 5,
-                "nodeCode": 32,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 16,
-                "randomVal": 317,
-                "visibility": 5,
-                "nodeCode": 33,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 17,
-                "randomVal": 361,
-                "visibility": 5,
-                "nodeCode": 34,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 19,
-                "randomVal": 216,
-                "visibility": 5,
-                "nodeCode": 35,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 801,
-                "visibility": 3,
-                "nodeCode": 36,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 885,
-                "visibility": 2,
-                "nodeCode": 37,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 631,
-                "visibility": 1,
-                "nodeCode": 38,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 678,
-                "visibility": 1,
-                "nodeCode": 39,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 261,
-                "nodeCode": 40,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 885,
-                "nodeCode": 41,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 979,
-                "visibility": 3,
-                "nodeCode": 44,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 409,
-                "visibility": 3,
-                "nodeCode": 45,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 14,
-                "randomVal": 713,
-                "visibility": 5,
-                "nodeCode": 46,
-                "mapId": "DEFAULT",
-                "isHidden": true
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 12,
-                "randomVal": 270,
-                "visibility": 5,
-                "nodeCode": 47,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 11,
-                "randomVal": 745,
-                "visibility": 5,
-                "nodeCode": 48,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 108,
-                "visibility": 3,
-                "nodeCode": 49,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 896,
-                "visibility": 3,
-                "nodeCode": 50,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 45,
-                "visibility": 3,
-                "nodeCode": 51,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 201,
-                "visibility": 3,
-                "nodeCode": 52,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 229,
-                "visibility": 3,
-                "nodeCode": 53,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 651,
-                "visibility": 3,
-                "nodeCode": 54,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 87,
-                "visibility": 2,
-                "nodeCode": 55,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 726,
-                "visibility": 2,
-                "nodeCode": 56,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 626,
-                "visibility": 1,
-                "nodeCode": 57,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 413,
-                "nodeCode": 58,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 246,
-                "nodeCode": 59,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 684,
-                "visibility": 3,
-                "nodeCode": 2000,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 996,
-                "visibility": 2,
-                "nodeCode": 16,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 6,
-                "randomVal": 405,
-                "visibility": 5,
-                "nodeCode": 1000,
-                "mapId": "DEFAULT"
-            },
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "randomVal": 144,
-                "visibility": 3,
-                "nodeCode": 1001,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "class": "com.majalis.save.SaveManager$VisitInfo",
-                "numberOfEncounters": 1,
-                "lastEncounterTime": 20,
-                "randomVal": 167,
-                "visibility": 5,
-                "nodeCode": 1007,
-                "mapId": "DEFAULT"
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        "capacity": 128,
-        "hashShift": 24,
-        "mask": 127,
-        "threshold": 102
-    },
-    "town": "TOWN_MONSTER",
-    "trudy": 14,
-    "kylira": 16,
-    "urka": 39,
-    "battleAttributes": {
-        "battleCode": "BRIGAND",
-        "outcomes": {
-            "SURRENDER": 240,
-            "SUBMISSION": 247,
-            "SATISFIED_ORAL": 245,
-            "SATISFIED_ANAL": 243,
-            "VICTORY": 179,
-            "DEFEAT": 241
-        },
-        "playerStance": "BALANCED",
-        "enemyStance": "BALANCED",
-        "delay": 2
-    },
-    "player": {
-        "name": "Li",
-        "worldTransform": {},
-        "computedTransform": {},
-        "oldTransform": {},
-        "label": "You",
-        "pronouns": "SECOND_PERSON",
-        "secondPerson": true,
-        "jobClass": "THIEF",
-        "level": 1,
-        "experience": 10,
-        "baseStrength": 4,
-        "baseEndurance": 5,
-        "baseAgility": 6,
-        "basePerception": 5,
-        "baseMagic": 1,
-        "baseCharisma": 6,
-        "healthTiers": {
-            "items": [ 15, 15, 15, 15 ],
-            "size": 4
-        },
-        "staminaTiers": {
-            "items": [ 5, 5, 5, 5 ],
-            "size": 4
-        },
-        "manaTiers": {
-            "items": [ 0 ],
-            "size": 1
-        },
-        "manaReserve": 50,
-        "perks": {
-            "SKILLED": 1,
-            "HARDER": 1,
-            "SUNDERER": 0
-        },
-        "currentHealth": 60,
-        "currentStamina": 20,
-        "stability": "Surefooted",
-        "focus": 10,
-        "fortune": 10,
-        "arousal": {
-            "type": "PLAYER",
-            "climaxCount": {
-                "ANAL_RECEPTIVE": 1
-            }
-        },
-        "dignity": {
-            "dignity": 73
-        },
-        "purity": {
-            "purity": 70
-        },
-        "ass": {
-            "sphincter": {
-                "friction": "SWOLLEN",
-                "dilation": "STRETCHED_HUGE",
-                "receivedSexRecently": 391,
-                "receivedSexTotal": 399,
-                "time": 28
-            },
-            "rectum": {
-                "cock": true
-            },
-            "colon": {},
-            "totalJizz": 10
-        },
-        "race": "Elfblood",
-        "breast": "LITTLE",
-        "bootyliciousness": "Round",
-        "totalMouthful": 10,
-        "stance": "BALANCED",
-        "oldStance": "OFFENSIVE",
-        "grappleStatus": "NULL",
-        "status": {
-            "INJURED": {
-                "duration": 1
-            },
-            "DRUNK": {
-                "duration": 1,
-                "magnitude": 1
-            },
-            "CUM_FILLED": {
-                "duration": 1
-            },
-            "LEWD_ENERGY": {},
-            "WINDED": {
-                "duration": 1
-            },
-            "DAZE": {},
-            "LUSTY": {
-                "duration": 1
-            }
-        },
-        "inventory": [
-            {
-                "class": "com.majalis.character.Item$Potion"
-            },
-            {
-                "class": "com.majalis.character.Item$Potion"
-            },
-            {
-                "class": "com.majalis.character.Item$Potion",
-                "magnitude": 20
-            },
-            {
-                "class": "com.majalis.character.Item$Potion",
-                "magnitude": 20
-            }
-        ],
-        "equipment": [
-            {
-                "class": "com.majalis.character.Item$Weapon",
-                "type": "Dagger",
-                "grip": 40
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "CLOTH_TOP",
-                "durability": 24
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "SKIRT",
-                "durability": 24
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "SHIELD",
-                "durability": 30
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "UNDERWEAR",
-                "durability": 8
-            }
-        ],
-        "food": 198,
-        "armorDefenseTutorial": true,
-        "skills": {
-            "KICK_OVER_FACE_DOWN": 1,
-            "KIP_UP": 1,
-            "OPEN_WIDE": 1,
-            "RECIPROCATE": 1,
-            "UH_OH": 1,
-            "HURK": 1,
-            "RIDE_ON_IT_REVERSE": 1,
-            "RECEIVE_OUROBOROS": 1,
-            "STRUGGLE_FULL_NELSON": 1,
-            "TEMPO_ATTACK": 1,
-            "BREAK_FREE_MAKEOUT": 1,
-            "HAYMAKER": 1,
-            "STROKE": 1,
-            "WHISPER_SWEETLY": 1,
-            "BRACE": 1,
-            "RECEIVE_ANAL": 1,
-            "KNEE_UP": 1,
-            "SUBMIT": 1,
-            "RECEIVE_PRONE_BONE": 1,
-            "GRIND": 1,
-            "STRUGGLE_FACE_SIT": 1,
-            "STOP_SEDUCING": 1,
-            "JUDO_THROW": 1,
-            "IRRUMATIO": 1,
-            "TEASE_NIPPLES": 1,
-            "EN_GARDE": 1,
-            "ROLL_OVER_UP": 1,
-            "RELEASE_SUPINE": 1,
-            "ERUPT_ANAL": 1,
-            "PUSH_OFF_REVERSE": 1,
-            "DRAW_ARROW": 1,
-            "STAY": 1,
-            "POUND_STANDING": 1,
-            "FLIP_SUPINE": 1,
-            "PULL_OUT": 1,
-            "FIRE": 1,
-            "BREAK_FREE_GROUND": 1,
-            "PULL_OUT_STANDING": 1,
-            "GRIP_HIPS": 1,
-            "ASS_CRUSH": 1,
-            "MOUTH_FEEL": 1,
-            "RECEIVE_HANDY": 1,
-            "SUCK_IT": 1,
-            "PENETRATE_MISSIONARY": 1,
-            "PULL_OUT_ANAL": 1,
-            "POUNCE_PRONE_BONE": 1,
-            "RECEIVE_STANDING": 1,
-            "STRUGGLE_GROUND": 1,
-            "STRUGGLE_ANAL": 1,
-            "GRIND_ASS": 1,
-            "PENETRATE_PRONE": 1,
-            "REVERSAL": 1,
-            "KNEE_UP_HANDS": 1,
-            "GRIP": 1,
-            "PARRY": 0,
-            "FACEFUCK": 1,
-            "ROUND_AND_ROUND": 1,
-            "RESERVED_ATTACK": 1,
-            "SAY_AHH": 1,
-            "SQUEEZE_STRUGGLE": 1,
-            "SWALLOW_DOWN": 1,
-            "SUCK_KNOT": 1,
-            "PULL_OUT_ORAL": 1,
-            "ERUPT_ORAL": 1,
-            "ADVANCE": 1,
-            "PENETRATE_STANDING": 1,
-            "CHOKE": 1,
-            "HOLD_BACK": 1,
-            "BLOCK": 1,
-            "SWALLOW_DOWN_BOTTOM": 1,
-            "REST_GROUND_DOWN": 1,
-            "STROKE_STANDING": 1,
-            "TURN_AND_SIT": 1,
-            "ERUPT_AUTO_FELLATIO": 1,
-            "ALL_OUT_BLITZ": 1,
-            "SQUEEZE_REST": 1,
-            "GET_FACE_RIDDEN": 1,
-            "CANCEL": 1,
-            "POUND_DOGGY": 1,
-            "STAND_OFF_IT": 1,
-            "STAY_KNELT": 1,
-            "GRAPPLE": 1,
-            "ITEM_OR_CANCEL": 1,
-            "STRUGGLE_PRONE_BONE": 1,
-            "RECEIVE_KNOT": 1,
-            "GUARD": 1,
-            "OUROBOROS": 1,
-            "RECIPROCATE_BOTTOM": 1,
-            "BOUNCE": 1,
-            "STAND_UP_HANDS": 1,
-            "WRESTLE_TO_GROUND_UP": 1,
-            "PRESENT": 1,
-            "FULL_NELSON": 1,
-            "STRUGGLE_GROUND_UP": 1,
-            "BREAK_FREE_SQUEEZE": 1,
-            "STRUGGLE_ORAL": 1,
-            "POUT": 1,
-            "RECEIVE_DOGGY": 1,
-            "ERUPT_COWGIRL": 1,
-            "SELFSUCK": 1,
-            "POUNCE_ANAL": 1,
-            "REST_FACE_DOWN": 1,
-            "BREAK_FREE_FULL_NELSON": 1,
-            "PUSH_OFF_ATTEMPT_REVERSE": 1,
-            "GET_FACEFUCKED": 1,
-            "LET_GO": 1,
-            "BREAK_FREE_GROUND_UP": 1,
-            "KISS_LIPS": 1,
-            "RIPOSTE": 1,
-            "GRIND_HIP": 1,
-            "LOWER_GUARD": 1,
-            "REST_GROUND_UP": 1,
-            "TAKEDOWN": 1,
-            "PUSH_OFF": 1,
-            "KICK_OVER_FACE_UP": 1,
-            "FACE_PUNCH": 1,
-            "GAG": 1,
-            "JUMP_ATTACK": 1,
-            "WRESTLE_TO_GROUND": 1,
-            "MOUTH_FEEL_BOTTOM": 1,
-            "FLIP_PRONE": 1,
-            "BE_RIDDEN": 1,
-            "PUSH_OFF_ATTEMPT": 1,
-            "DUCK": 1,
-            "SPRING_ATTACK": 2,
-            "ABSOLUTE_GUARD": 1,
-            "HOLD": 1,
-            "STRUGGLE_FACEFUCK": 1,
-            "PIN": 1,
-            "ASHI": 1,
-            "STAND_UP": 1,
-            "RECEIVE_EGGS": 1,
-            "SURRENDER": 1,
-            "ANALINGUS": 1,
-            "POUNCE_DOGGY": 1,
-            "SIT_ON_IT": 1,
-            "RIDE_ON_IT": 1,
-            "CAREFUL_ATTACK": 2,
-            "RECEIVE_COCK": 1,
-            "BREAK_FREE_ORAL": 1,
-            "POUND_PRONE_BONE": 1,
-            "PUSH_UP": 1,
-            "STAND_UP_KNEELING": 1,
-            "SMOTHER": 1,
-            "STROKE_IT": 1,
-            "TAUNT": 1,
-            "RELEASE_PRONE": 1,
-            "SLAP_ASS_KNEES": 1,
-            "STRUGGLE_STANDING": 1,
-            "FACE_SIT": 1,
-            "SLAP_ASS": 1,
-            "BE_RIDDEN_REVERSE": 1,
-            "NEUTRAL_ATTACK": 1,
-            "VAULT_OVER": 1,
-            "POWER_ATTACK": 1,
-            "MOUNT_FACE": 1,
-            "HOLD_WRESTLE": 1,
-            "DO_NOTHING": 1,
-            "MAKEOUT": 1,
-            "BREAK_FREE_ANAL": 1,
-            "ROLL_OVER_DOWN": 1,
-            "STRUGGLE_SIXTY_NINE": 1,
-            "REST": 1,
-            "BREAK_FREE_FACE_SIT": 1,
-            "STRUGGLE_OUROBOROS": 1,
-            "RAGE": 1,
-            "SECOND_WIND": 1,
-            "STRUGGLE_DOGGY": 1,
-            "POUND_ANAL": 1,
-            "USE_ITEM": 1,
-            "FONDLE": 1,
-            "REST_WRESTLE": 1,
-            "SPUTTER": 1,
-            "STRUGGLE_MAKEOUT": 1,
-            "GRAB_IT": 1,
-            "FULL_REVERSAL": 1
-        },
-        "luckStreak": {
-            "items": [
-                true,
-                true,
-                true,
-                false,
-                false,
-                false
-            ],
-            "size": 6
-        },
-        "time": 28,
-        "money": 115,
-        "willpower": 5,
-        "femininity": "EFFEMINATE",
-        "lipFullness": "Pouty",
-        "lewdCooldown": -28,
-        "currentPortrait": "portraits/Ahegao.png",
-        "sexualExperiences": {
-            "ORC": {
-                "analSex": 1,
-                "analEjaculation": 1,
-                "other": "ORC"
-            },
-            "BRIGAND": {
-                "assTeasing": 4,
-                "other": "BRIGAND"
-            },
-            "SATYR": {
-                "analSex": 1,
-                "creampies": 1,
-                "other": "SATYR"
-            },
-            "BROTHEL_MADAME": {
-                "assTeasing": 8,
-                "other": "BROTHEL_MADAME"
-            },
-            "DARK_KNIGHT": {
-                "oralSex": 1,
-                "oralCreampies": 1,
-                "other": "DARK_KNIGHT"
-            },
-            "LIZARD_WOMAN": {
-                "oralSex": 1,
-                "oralCreampies": 1,
-                "other": "LIZARD_WOMAN"
-            }
-        },
-        "loaded": true,
-        "questFlags": {
-            "ORC": 1,
-            "DARK_KNIGHT_TAVERN": 2,
-            "HUMAN_TOWN": 1,
-            "BROTHEL_MADAME_REQUEST": 2,
-            "MADAME": 4,
-            "MONSTER_TOWN": 1,
-            "ELF": 3
-        },
-        "eventLog": [
-            "You lost your mouth virginity to a Dark Knight on the Afternoon of day 4!",
-            "You lost your anal virginity to a Satyr on the Afternoon of day 4!",
-            "You got ass-blasted by an orc for the first time on the Evening of day 5!"
-        ],
-        "degradationTutorial": true,
-        "grappleTutorial": true,
-        "knockdownTutorial": true,
-        "stanceTutorial": true,
-        "hairColor": "Black",
-        "eyeColor": "Pink"
-    },
-    "playerStart": {
-        "name": "Hiro",
-        "worldTransform": {},
-        "computedTransform": {},
-        "oldTransform": {},
-        "label": "You",
-        "pronouns": "SECOND_PERSON",
-        "secondPerson": true,
-        "jobClass": "THIEF",
-        "level": 1,
-        "baseStrength": 3,
-        "baseEndurance": 3,
-        "baseAgility": 3,
-        "basePerception": 3,
-        "baseMagic": 3,
-        "baseCharisma": 3,
-        "healthTiers": {
-            "items": [ 15, 15, 15, 15 ],
-            "size": 4
-        },
-        "staminaTiers": {
-            "items": [ 5, 5, 5, 5 ],
-            "size": 4
-        },
-        "manaTiers": {
-            "items": [ 0 ],
-            "size": 1
-        },
-        "manaReserve": 50,
-        "perks": {
-            "SKILLED": 1,
-            "HARDER": 1,
-            "SUNDERER": 0
-        },
-        "currentHealth": 60,
-        "currentStamina": 20,
-        "stability": "Surefooted",
-        "focus": 10,
-        "fortune": 10,
-        "arousal": {
-            "type": "PLAYER"
-        },
-        "dignity": {},
-        "purity": {},
-        "ass": {
-            "sphincter": {},
-            "rectum": {},
-            "colon": {}
-        },
-        "bootyliciousness": "Round",
-        "stance": "BALANCED",
-        "grappleStatus": "NULL",
-        "inventory": [
-            {
-                "class": "com.majalis.character.Item$Potion"
-            },
-            {
-                "class": "com.majalis.character.Item$Potion"
-            },
-            {
-                "class": "com.majalis.character.Item$Potion",
-                "magnitude": 20
-            },
-            {
-                "class": "com.majalis.character.Item$Potion",
-                "magnitude": 20
-            }
-        ],
-        "equipment": [
-            {
-                "class": "com.majalis.character.Item$Weapon",
-                "type": "Dagger",
-                "grip": 40
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "CLOTH_TOP",
-                "durability": 24
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "SKIRT",
-                "durability": 24
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "UNDERWEAR",
-                "durability": 8
-            },
-            {
-                "class": "com.majalis.character.Armor",
-                "type": "SHIELD",
-                "durability": 30
-            }
-        ],
-        "food": 120,
-        "skills": {
-            "KICK_OVER_FACE_DOWN": 1,
-            "UH_OH": 1,
-            "PENETRATE_STANDING": 1,
-            "RIDE_ON_IT_REVERSE": 1,
-            "RECEIVE_OUROBOROS": 1,
-            "REVERSAL": 1,
-            "TEMPO_ATTACK": 1,
-            "BREAK_FREE_MAKEOUT": 1,
-            "HOLD": 1,
-            "STRUGGLE_DOGGY": 1,
-            "BRACE": 1,
-            "RECEIVE_ANAL": 1,
-            "KNEE_UP": 1,
-            "SUBMIT": 1,
-            "STRUGGLE_FULL_NELSON": 1,
-            "RECEIVE_PRONE_BONE": 1,
-            "STRUGGLE_FACE_SIT": 1,
-            "STOP_SEDUCING": 1,
-            "JUDO_THROW": 1,
-            "FULL_NELSON": 1,
-            "TEASE_NIPPLES": 1,
-            "EN_GARDE": 1,
-            "ROLL_OVER_UP": 1,
-            "BOUNCE": 1,
-            "ITEM_OR_CANCEL": 1,
-            "ERUPT_ANAL": 1,
-            "PUSH_OFF_REVERSE": 1,
-            "DRAW_ARROW": 1,
-            "GRAPPLE": 1,
-            "HOLD_BACK": 1,
-            "FLIP_SUPINE": 1,
-            "PULL_OUT": 1,
-            "FIRE": 1,
-            "STROKE": 1,
-            "CAREFUL_ATTACK": 2,
-            "GRIP_HIPS": 1,
-            "ASS_CRUSH": 1,
-            "MOUTH_FEEL": 1,
-            "SPUTTER": 1,
-            "GRIND_HIP": 1,
-            "PULL_OUT_ANAL": 1,
-            "POUNCE_PRONE_BONE": 1,
-            "STRUGGLE_MAKEOUT": 1,
-            "KIP_UP": 1,
-            "STRUGGLE_GROUND": 1,
-            "RECEIVE_STANDING": 1,
-            "MOUTH_FEEL_BOTTOM": 1,
-            "PENETRATE_PRONE": 1,
-            "RELEASE_SUPINE": 1,
-            "ALL_OUT_BLITZ": 1,
-            "STRUGGLE_GROUND_UP": 1,
-            "GRIP": 1,
-            "FACEFUCK": 1,
-            "ROUND_AND_ROUND": 1,
-            "RESERVED_ATTACK": 1,
-            "STAY": 1,
-            "BREAK_FREE_GROUND": 1,
-            "HOLD_WRESTLE": 1,
-            "BE_RIDDEN": 1,
-            "SUCK_KNOT": 1,
-            "PULL_OUT_ORAL": 1,
-            "REST_GROUND_UP": 1,
-            "ERUPT_ORAL": 1,
-            "ADVANCE": 1,
-            "RECIPROCATE": 1,
-            "CHOKE": 1,
-            "SUCK_IT": 1,
-            "BLOCK": 1,
-            "SWALLOW_DOWN_BOTTOM": 1,
-            "REST_GROUND_DOWN": 1,
-            "STROKE_STANDING": 1,
-            "TURN_AND_SIT": 1,
-            "ERUPT_AUTO_FELLATIO": 1,
-            "SQUEEZE_STRUGGLE": 1,
-            "LET_GO": 1,
-            "GET_FACE_RIDDEN": 1,
-            "CANCEL": 1,
-            "POUND_DOGGY": 1,
-            "SWALLOW_DOWN": 1,
-            "WHISPER_SWEETLY": 1,
-            "SPRING_ATTACK": 2,
-            "FULL_REVERSAL": 1,
-            "GUARD": 1,
-            "OUROBOROS": 1,
-            "RECIPROCATE_BOTTOM": 1,
-            "PARRY": 0,
-            "STAND_UP_HANDS": 1,
-            "WRESTLE_TO_GROUND_UP": 1,
-            "POUT": 1,
-            "GET_FACEFUCKED": 1,
-            "SAY_AHH": 1,
-            "STRUGGLE_STANDING": 1,
-            "BREAK_FREE_SQUEEZE": 1,
-            "STRUGGLE_ORAL": 1,
-            "STRUGGLE_ANAL": 1,
-            "RECEIVE_DOGGY": 1,
-            "ERUPT_COWGIRL": 1,
-            "GRIND_ASS": 1,
-            "REST_FACE_DOWN": 1,
-            "BREAK_FREE_FULL_NELSON": 1,
-            "PUSH_OFF_ATTEMPT_REVERSE": 1,
-            "KNEE_UP_HANDS": 1,
-            "SELFSUCK": 1,
-            "BREAK_FREE_GROUND_UP": 1,
-            "KISS_LIPS": 1,
-            "HAYMAKER": 1,
-            "NEUTRAL_ATTACK": 1,
-            "LOWER_GUARD": 1,
-            "OPEN_WIDE": 1,
-            "TAKEDOWN": 1,
-            "PUSH_OFF": 1,
-            "KICK_OVER_FACE_UP": 1,
-            "FACE_PUNCH": 1,
-            "GAG": 1,
-            "JUMP_ATTACK": 1,
-            "WRESTLE_TO_GROUND": 1,
-            "FLIP_PRONE": 1,
-            "PENETRATE_MISSIONARY": 1,
-            "PUSH_OFF_ATTEMPT": 1,
-            "DUCK": 1,
-            "IRRUMATIO": 1,
-            "VAULT_OVER": 1,
-            "ABSOLUTE_GUARD": 1,
-            "PRESENT": 1,
-            "POUND_STANDING": 1,
-            "STRUGGLE_FACEFUCK": 1,
-            "PIN": 1,
-            "ASHI": 1,
-            "STAND_UP": 1,
-            "RECEIVE_EGGS": 1,
-            "SURRENDER": 1,
-            "ANALINGUS": 1,
-            "POUNCE_DOGGY": 1,
-            "SIT_ON_IT": 1,
-            "RIDE_ON_IT": 1,
-            "ROLL_OVER_DOWN": 1,
-            "RIPOSTE": 1,
-            "STRUGGLE_OUROBOROS": 1,
-            "RECEIVE_COCK": 1,
-            "BREAK_FREE_ORAL": 1,
-            "POUND_PRONE_BONE": 1,
-            "STAND_UP_KNEELING": 1,
-            "SMOTHER": 1,
-            "HURK": 1,
-            "STROKE_IT": 1,
-            "REST_WRESTLE": 1,
-            "RELEASE_PRONE": 1,
-            "SLAP_ASS_KNEES": 1,
-            "FACE_SIT": 1,
-            "SLAP_ASS": 1,
-            "BE_RIDDEN_REVERSE": 1,
-            "PUSH_UP": 1,
-            "STRUGGLE_PRONE_BONE": 1,
-            "POWER_ATTACK": 1,
-            "MOUNT_FACE": 1,
-            "STAY_KNELT": 1,
-            "STAND_OFF_IT": 1,
-            "MAKEOUT": 1,
-            "BREAK_FREE_ANAL": 1,
-            "USE_ITEM": 1,
-            "STRUGGLE_SIXTY_NINE": 1,
-            "REST": 1,
-            "BREAK_FREE_FACE_SIT": 1,
-            "SQUEEZE_REST": 1,
-            "RAGE": 1,
-            "SECOND_WIND": 1,
-            "GRIND": 1,
-            "POUND_ANAL": 1,
-            "PULL_OUT_STANDING": 1,
-            "FONDLE": 1,
-            "DO_NOTHING": 1,
-            "GRAB_IT": 1,
-            "POUNCE_ANAL": 1,
-            "RECEIVE_HANDY": 1,
-            "TAUNT": 1,
-            "RECEIVE_KNOT": 1
-        },
-        "luckStreak": {
-            "items": [
-                true,
-                true,
-                true,
-                false,
-                false,
-                false
-            ],
-            "size": 6
-        },
-        "money": 70,
-        "willpower": 5,
-        "lipFullness": "Pouty",
-        "currentPortrait": "portraits/Smile.png",
-        "questFlags": {}
-    },
-    "shops": {},
-    "results": [
-        {
-            "text": "Arousal increases by 2!",
-            "mod": 2,
-            "type": "AROUSAL"
-        },
-        {
-            "text": "Purity decreased by 5.",
-            "mod": -5,
-            "type": "PURITY"
-        },
-        {
-            "text": "Dignity decreased by 20.",
-            "mod": -20,
-            "type": "DIGNITY"
-        },
-        {
-            "text": "Purity decreased by 10.",
-            "mod": -10,
-            "type": "PURITY"
-        }
-    ],
-    "console": []
-    }
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1079, 704)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(112, 112, 112))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(112, 112, 112))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(112, 112, 112))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(112, 112, 112))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        MainWindow.setPalette(palette)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setObjectName("gridLayout")
+
+        self.save_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.save_btn.setObjectName("save_btn")
+        self.gridLayout.addWidget(self.save_btn, 11, 3, 1, 1)
+
+        self.open_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.open_btn.setObjectName("open_btn")
+        self.gridLayout.addWidget(self.open_btn, 11, 2, 1, 1)
+
+        self.back_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.back_btn.setObjectName("back_btn")
+        self.gridLayout.addWidget(self.back_btn, 11, 1, 1, 1)
+
+        self.value_bar = QtWidgets.QLineEdit(self.centralwidget)
+        self.value_bar.setObjectName("value_bar")
+        self.gridLayout.addWidget(self.value_bar, 11, 6, 1, 1)
+
+        self.description_box = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.description_box.setObjectName("description_box")
+        self.gridLayout.addWidget(self.description_box, 9, 4, 1, 3)
+
+        self.unlock_achievements_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.unlock_achievements_btn.setObjectName("unlock_achievements_btn")
+        self.gridLayout.addWidget(self.unlock_achievements_btn, 6, 6, 1, 1)
+
+        self.search_bar = QtWidgets.QLineEdit(self.centralwidget)
+        self.search_bar.setObjectName("search_bar")
+        self.gridLayout.addWidget(self.search_bar, 6, 1, 1, 3)
+
+        self.unlock_encounters_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.unlock_encounters_btn.setObjectName("unlock_encounters_btn")
+        self.gridLayout.addWidget(self.unlock_encounters_btn, 6, 5, 1, 1)
+
+        self.path_label = QtWidgets.QLabel(self.centralwidget)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        self.path_label.setPalette(palette)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.path_label.setFont(font)
+        self.path_label.setObjectName("path_label")
+        self.gridLayout.addWidget(self.path_label, 4, 1, 1, 1)
+        self.variable_label = QtWidgets.QLabel(self.centralwidget)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        self.variable_label.setPalette(palette)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.variable_label.setFont(font)
+        self.variable_label.setObjectName("variable_label")
+        self.gridLayout.addWidget(self.variable_label, 4, 4, 1, 1)
+
+        self.max_skill_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.max_skill_btn.setObjectName("max_skill_btn")
+        self.gridLayout.addWidget(self.max_skill_btn, 6, 4, 1, 1)
+
+        self.reset_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.reset_btn.setObjectName("reset_btn")
+        self.gridLayout.addWidget(self.reset_btn, 11, 5, 1, 1)
+
+        self.add_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.add_btn.setObjectName("add_btn")
+        self.gridLayout.addWidget(self.add_btn, 11, 4, 1, 1)
+
+        self.list_values = QtWidgets.QListWidget(self.centralwidget)
+        self.list_values.setObjectName("list_values")
+        self.gridLayout.addWidget(self.list_values, 9, 1, 2, 3)
+
+        self.tag_bar = QtWidgets.QLineEdit(self.centralwidget)
+        self.tag_bar.setObjectName("tag_bar")
+        self.gridLayout.addWidget(self.tag_bar, 10, 4, 1, 3)
+        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1079, 21))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        # buttons / bars / items
+        self.value_bar.returnPressed.connect(self.update_variable)
+        self.max_skill_btn.clicked.connect(self.max_skills)
+        self.unlock_achievements_btn.clicked.connect(self.unlock_achievements)
+        self.unlock_encounters_btn.clicked.connect(self.unlock_events)
+        self.reset_btn.clicked.connect(self.max_perks)
+        self.add_btn.clicked.connect(self.add_empty)
+        self.open_btn.clicked.connect(self.open_save)
+        self.back_btn.clicked.connect(lambda param: self.update_path(True))
+        self.save_btn.clicked.connect(self.save_dict_to_file)
+        self.value_bar.textChanged.connect(self.update_variable)
+        self.search_bar.textChanged.connect(lambda *param: self.display_variables(self.last_display, 2))
+        self.list_values.itemDoubleClicked.connect(lambda param: self.update_path(False))
+
+        # tags = dictionary path, which is added to search index but saved separately
+        self.save = ''
+        self.save_file = ''
+        self.last_display = -1
+
+        self.profile = []
+        self.path = []
+        self.current_var = ['']
+
+        self.desciptions = {}
+        
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Save Editor"))
+        self.save_btn.setText(_translate("MainWindow", "Save"))
+        self.open_btn.setText(_translate("MainWindow", "Open Save"))
+        self.back_btn.setText(_translate("MainWindow", "Back"))
+        self.value_bar.setPlaceholderText(_translate("MainWindow", "value:"))
+        self.description_box.setPlaceholderText(_translate("MainWindow", "As you type/edit it will auto-save the description..."))
+        self.unlock_achievements_btn.setText(_translate("MainWindow", "Unlock Achievements"))
+        self.search_bar.setPlaceholderText(_translate("MainWindow", "Search"))
+        self.unlock_encounters_btn.setText(_translate("MainWindow", "Unlock Events"))
+        self.path_label.setText(_translate("MainWindow", "PATHS: "))
+        self.variable_label.setText(_translate("MainWindow", "VARIABLE EDITOR: "))
+        self.max_skill_btn.setText(_translate("MainWindow", "Max Skills"))
+        self.reset_btn.setText(_translate("MainWindow", "Max Perks"))
+        self.add_btn.setText(_translate("MainWindow", "Add"))
+        self.tag_bar.setPlaceholderText(_translate("MainWindow", "Tags - separate with commas ~"))
+    
+    def open_save(self):
+        try:
+            self.savefile, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select Save File", "", ".json Files (*.json)")
+            self.playerfile = self.savefile.split('/')[:-1] 
+            self.playerfile.append('profile.json')
+            self.save_file = self.savefile
+
+            self.profile.append('/'.join(self.playerfile))
+            
+            self.save = json.load(open(self.savefile))
+            self.path.append(self.save)
+
+            self.display_variables(1, 1)
+            self.last_display = 1
+        except:
+            pass
+    
+    def save_dict_to_file(self):
+        try:
+            json.dump(self.save, open(self.save_file, "w+"), indent=4, skipkeys=True)
+            print(f"\n[!] Saved Changes to: {self.save_file}\n")
+        except Exception as error:
+            print(error)
+    
+    def save_external_to_file(self, prof_dic, target_file):
+        try:
+            json.dump(prof_dic, open(target_file, "w+"), indent=4)
+            print(f"\n[!] Saved Changes to: {target_file}\n")
+        except Exception as error:
+            print(error)
+    
+    def load_external_json(self, target_file):
+        try:
+            return json.load(open(target_file))
+            print(f"[!] Loaded external json: {target_file}")
+        except Exception as error:
+            print(error)
+    
+    def update_variable(self):
+        try:
+            self.convert_to = type(self.path[-1][self.current_var[0][-1]])
+            self.path[-1][self.current_var[0][-1]] = self.convert_to(self.value_bar.text())
+            self.display_variables(self.last_display, 1)
+        except:
+            try:
+                self.convert_to = type(self.current_dic[self.current_var[1]])
+                self.current_dic[self.current_var[1]] = self.convert_to(self.value_bar.text())
+                self.display_variables(self.last_display, 1)
+            except Exception as error:
+                print(error)
+
+    def unlock_achievements(self):
+        if self.last_display > -1:
+            try:
+                if os.path.isfile(self.profile[0]):
+                    self.dic = self.load_external_json(self.profile[0])
+                    try:
+                        self.achievements = self.load_external_json("data.json")['achievements']
+                    except:
+                        try:
+                            self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Achievements", "", ".json Files (*.json)")
+                            self.achievements = self.load_external_json(self.path_to)['achievements']
+                        except Exception as error: 
+                            print('3', error)
+
+                    self.dic['achievements'] = self.achievements
+
+                    self.save_external_to_file(self.dic, self.profile[0])
+
+                else:
+                    pass
+            except Exception as error:
+                print(error)
+        else:
+            print(self.last_display)
+    
+    def unlock_events(self):
+        if self.last_display > -1:
+            try:
+                if os.path.isfile(self.profile[0]):
+                    self.dic = self.load_external_json(self.profile[0])
+                    try:
+                        self.events = self.load_external_json("data.json")['events']
+                    except:
+                        try:
+                            self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Events", "", ".json Files (*.json)")
+                            self.events = self.load_external_json(self.path_to)['events']
+                        except Exception as error: 
+                            print('3', error)
+
+                    self.dic['events'] = self.events
+
+                    self.save_external_to_file(self.dic, self.profile[0])
+
+                else:
+                    pass
+            except Exception as error:
+                print(error)
+        else:
+            print(self.last_display)
+
+        if self.last_display > -1:
+            try:
+                if os.path.isfile(self.profile[0]):
+                    self.dic2 = self.load_external_json(self.profile[0])
+                    try:
+                        self.pervert = self.load_external_json("data.json")['enemyKnowledge']
+                    except:
+                        try:
+                            self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Toa pervert Characters", "", ".json Files (*.json)")
+                            self.pervert = self.load_external_json(self.path_to)['enemyKnowledge']
+                        except Exception as error: 
+                            print('3', error)
+
+                    self.dic2['enemyKnowledge'] = self.pervert
+
+                    self.save_external_to_file(self.dic2, self.profile[0])
+
+                else:
+                    pass
+            except Exception as error:
+                print(error)
+        else:
+            print(self.last_display)
+    
+    def max_perks(self):
+        if self.last_display > -1:
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.perks = self.load_external_json(self.current_path)['perks-max']
+                    self.save['player']['perks'] = self.perks
+                    self.save_dict_to_file()
+                else:
+                    try:
+                        self.current_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Perks", "", ".json Files (*.json)")
+                        self.perks = self.load_external_json(self.current_path)['perks-max']
+                        self.save['player']['perks'] = self.perks
+                        self.save_dict_to_file()
+
+                    except Exception as error:
+                        print('1',error)
+            except:
+                print('2', error)
+        else:
+            print(self.last_display)
+ 
+    def max_skills(self):
+        if self.last_display > -1:
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.skills = self.load_external_json(self.current_path)['skills-max']
+                    self.save['player']['skills'] = self.skills
+                    self.save_dict_to_file()
+                else:
+                    try:
+                        self.current_path, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Skills", "", ".json Files (*.json)")
+                        self.skills = self.load_external_json(self.current_path)['skills-max']
+                        self.save['player']['skills'] = self.skills
+                        self.save_dict_to_file()
+
+                    except Exception as error:
+                        print('1',error)
+            except:
+                print('2', error)
+        else:
+            print(self.last_display)
+    
+    def add_empty(self):
+        if self.last_display > -1:
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.skills = self.load_external_json(self.current_path)['skills']
+                    for self.key in self.skills.keys():
+                        if self.key in self.save['player']['skills'].keys():
+                            pass
+                        else:
+                            self.save['player']['skills'][self.key] = 0
+                    self.save_dict_to_file()
+                else:
+                        print('[1-1]', "Couldn't resolve path to data.json")
+            except:
+                print('2', error)
+
+            try:
+                self.current_path = os.path.join(os.getcwd(), "data.json")
+                if os.path.isfile(self.current_path):
+                    self.skills = self.load_external_json(self.current_path)['perks']
+                    for self.key in self.skills.keys():
+                        if self.key in self.save['player']['perks'].keys():
+                            pass
+                        else:
+                            self.save['player']['perks'][self.key] = 0
+                    self.save_dict_to_file()
+                else:
+                        print('[1-2]', "Couldn't resolve path to data.json")
+            except:
+                print('2', error)
+        else:
+            print(self.last_display)
+
+    def display_variables(self, typ, ref):
+        self.list_values.clear()
+        if ref == 1:
+            if typ == 1:
+                for self.value in self.path[-1].keys():
+                    if str(type(self.path[-1][self.value])) == "<class 'int'>" or str(type(self.path[-1][self.value])) == "<class 'str'>" or str(type(self.path[-1][self.value])) == "<class 'bool'>":
+                        self.list_values.addItem(f"{self.value} : {self.path[-1][self.value]}")
+                    else:
+                        self.list_values.addItem(f"{self.value} : >")
+            elif typ == 2:
+                for self.value in self.path[-1]:
+                    if str(type(self.value)) == "<class 'dict'>":
+                        for self.dvalue in self.value.keys():
+                            self.list_values.addItem(f"{str(self.dvalue)} : {self.value[self.dvalue]}")
+                    else:
+                        pass
+            else:
+                pass
+        elif ref == 2:
+            if typ == 1:
+                for self.value in self.path[-1].keys():
+                    if str(type(self.path[-1][self.value])) == "<class 'int'>" or str(type(self.path[-1][self.value])) == "<class 'str'>" or str(type(self.path[-1][self.value])) == "<class 'bool'>":
+                        if self.search_bar.text() in self.value:
+                            self.list_values.addItem(f"{self.value} : {self.path[-1][self.value]}")
+                        else:
+                            pass
+                    else:
+                        if self.search_bar.text() in self.value:
+                            self.list_values.addItem(f"{self.value} : >")
+                        else:
+                            pass
+            elif typ == 2:
+                for self.value in self.path[-1]:
+                    if self.search_bar.text() in self.value:
+                        if str(type(self.value)) == "<class 'dict'>":
+                            for self.dvalue in self.value.keys():
+                                self.list_values.addItem(f"{str(self.dvalue)} : {self.value[self.dvalue]}")
+                        else:
+                            pass
+                    else:
+                        pass   
+        else:
+            pass
+
+
+    def update_path(self, back):
+        if not back:
+            self.item = self.list_values.currentItem().text().split(' :')[0]
+            self.crnt_row = self.list_values.currentRow()
+            try:
+                if str(type(self.path[-1][self.item])) == "<class 'dict'>":
+                    self.path.append(self.path[-1][self.item])
+                    self.display_variables(1, 1)
+                    self.last_display = 1
+                elif str(type(self.path[-1][self.item])) == "<class 'list'>":
+                    self.path.append(self.path[-1][self.item])
+                    self.last_display = 2
+                    self.display_variables(2, 1)
+                else:
+                    self.current_var[0] = [self.item]
+                    self.display_var = self.path[-1][self.current_var[0][-1]]
+                    self.value_bar.setText(str(self.display_var))
+            except:
+                for self.limit in range(len(self.path[-1])):
+                    if self.item in self.path[-1][self.limit]:
+                        self.current_var[0] = self.path[-1][self.limit]
+
+                        if len(self.current_var) > 1:
+                            self.current_var.remove(self.current_var[-1])
+                        else:
+                            pass
+                        
+                        self.current_var.append(self.item)
+
+                        self.current_dic = self.current_var[0]
+                        self.value_bar.setText(str(self.current_dic[self.current_var[1]]))
+                        self.current_var[0] = self.current_dic[self.current_var[1]]
+                        break
+                    else:
+                        pass
+
+        elif len(self.path) > 1:
+            self.path.remove(self.path[-1])
+            self.display_variables(1, 1)
+            self.last_display = 1
+        else:
+            print("Can't go back any futher.")
+        
+
+
+if __name__ == "__main__":
+    import os
+    import sys
+    import json
+
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
