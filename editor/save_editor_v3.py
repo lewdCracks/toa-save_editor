@@ -288,6 +288,7 @@ class Ui_MainWindow(object):
                             self.events = self.data['events']
                             self.enemyKnowledge = self.data['enemyKnowledge']
                             self.cgSeen = self.data['cgSeen']
+                            self.animatedCgSeen = self.data['animatedCgSeen']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Events", "", ".json Files (*.json)")
@@ -296,6 +297,7 @@ class Ui_MainWindow(object):
                             self.events = self.data['events']
                             self.enemyKnowledge = self.data['enemyKnowledge']
                             self.cgSeen = self.data['cgSeen']
+                            self.animatedCgSeen = self.data['animatedCgSeen']
 
                         except Exception as error: 
                             print('3', error)
@@ -303,6 +305,7 @@ class Ui_MainWindow(object):
                     self.dic['events'] = self.events
                     self.dic['enemyKnowledge'] = self.enemyKnowledge
                     self.dic['cgSeen'] = self.cgSeen
+                    self.dic['animatedCgSeen'] = self.animatedCgSeen
 
                     self.save_external_to_file(self.dic, self.profile[0])
 
@@ -323,6 +326,7 @@ class Ui_MainWindow(object):
                         self.events = self.data2['events']
                         self.enemyKnowledge = self.data2['enemyKnowledge']
                         self.cgSeen = self.data2['cgSeen']
+                        self.animatedCgSeen = self.data2['animatedCgSeen']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Toa pervert Characters", "", ".json Files (*.json)")
@@ -331,6 +335,7 @@ class Ui_MainWindow(object):
                             self.events = self.data2['events']
                             self.enemyKnowledge = self.data2['enemyKnowledge']
                             self.cgSeen = self.data2['cgSeen']
+                            self.animatedCgSeen = self.data2['animatedCgSeen']
 
                         except Exception as error: 
                             print('3', error)
@@ -338,6 +343,7 @@ class Ui_MainWindow(object):
                     self.dic2['events'] = self.events
                     self.dic2['enemyKnowledge'] = self.enemyKnowledge
                     self.dic2['cgSeen'] = self.cgSeen
+                    self.dic2['animatedCgSeen'] = self.animatedCgSeen
 
                     self.save_external_to_file(self.dic2, self.profile[0])
 
