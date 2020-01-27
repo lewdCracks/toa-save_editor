@@ -176,6 +176,11 @@ class Ui_MainWindow(object):
         self.current_var = ['']
 
         self.desciptions = {}
+
+        try:
+            self.desciptions = self.load_external_json("data.json")['descriptions']
+        except Exception as error:
+            print(error, "\n[!] Most likely missing data,json...")
         
 
     def retranslateUi(self, MainWindow):
@@ -278,15 +283,26 @@ class Ui_MainWindow(object):
                 if os.path.isfile(self.profile[0]):
                     self.dic = self.load_external_json(self.profile[0])
                     try:
-                        self.events = self.load_external_json("data.json")['events']
+                            self.data = self.load_external_json("data.json")
+
+                            self.events = self.data['events']
+                            self.enemyKnowledge = self.data['enemyKnowledge']
+                            self.cgSeen = self.data['cgSeen']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Events", "", ".json Files (*.json)")
-                            self.events = self.load_external_json(self.path_to)['events']
+                            self.data = self.load_external_json(self.path_to)
+
+                            self.events = self.data['events']
+                            self.enemyKnowledge = self.data['enemyKnowledge']
+                            self.cgSeen = self.data['cgSeen']
+
                         except Exception as error: 
                             print('3', error)
 
                     self.dic['events'] = self.events
+                    self.dic['enemyKnowledge'] = self.enemyKnowledge
+                    self.dic['cgSeen'] = self.cgSeen
 
                     self.save_external_to_file(self.dic, self.profile[0])
 
@@ -302,15 +318,26 @@ class Ui_MainWindow(object):
                 if os.path.isfile(self.profile[0]):
                     self.dic2 = self.load_external_json(self.profile[0])
                     try:
-                        self.pervert = self.load_external_json("data.json")['enemyKnowledge']
+                        self.data2 = self.load_external_json("data.json")
+
+                        self.events = self.data2['events']
+                        self.enemyKnowledge = self.data2['enemyKnowledge']
+                        self.cgSeen = self.data2['cgSeen']
                     except:
                         try:
                             self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select File Containing Toa pervert Characters", "", ".json Files (*.json)")
-                            self.pervert = self.load_external_json(self.path_to)['enemyKnowledge']
+                            self.data2 = self.load_external_json(self.path_to)
+
+                            self.events = self.data2['events']
+                            self.enemyKnowledge = self.data2['enemyKnowledge']
+                            self.cgSeen = self.data2['cgSeen']
+
                         except Exception as error: 
                             print('3', error)
 
-                    self.dic2['enemyKnowledge'] = self.pervert
+                    self.dic2['events'] = self.events
+                    self.dic2['enemyKnowledge'] = self.enemyKnowledge
+                    self.dic2['cgSeen'] = self.cgSeen
 
                     self.save_external_to_file(self.dic2, self.profile[0])
 
@@ -461,6 +488,12 @@ class Ui_MainWindow(object):
                     self.current_var[0] = [self.item]
                     self.display_var = self.path[-1][self.current_var[0][-1]]
                     self.value_bar.setText(str(self.display_var))
+                    try:
+                        self.description_box.setPlainText(str(self.desciptions[self.current_var[0][-1]]))
+                    except Exception as error:
+                        self.description_box.setPlainText("No description")
+
+                    print(self.current_var)
             except:
                 for self.limit in range(len(self.path[-1])):
                     if self.item in self.path[-1][self.limit]:
@@ -475,6 +508,8 @@ class Ui_MainWindow(object):
 
                         self.current_dic = self.current_var[0]
                         self.value_bar.setText(str(self.current_dic[self.current_var[1]]))
+                        self.description_box.setText(str(self.desciptions[str(self.display_var)]))
+                        print(self.current_var)
                         self.current_var[0] = self.current_dic[self.current_var[1]]
                         break
                     else:
