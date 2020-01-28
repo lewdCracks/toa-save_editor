@@ -180,7 +180,7 @@ class Ui_MainWindow(object):
         try:
             self.desciptions = self.load_external_json("data.json")['descriptions']
         except Exception as error:
-            print(error, "\n[!] Most likely missing data,json...")
+            print(error, "\n[!] Most likely missing data.json")
         
 
     def retranslateUi(self, MainWindow):
