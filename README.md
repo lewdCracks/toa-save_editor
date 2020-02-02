@@ -17,4 +17,4 @@ MINOR:
 - It will now prompt you if it can't find 'data.json'.
 - You can now refresh the save - this will make it so you don't have to reload the save after playing for a bit.
 
-<a href="http://www.mediafire.com/file/3xgvyexwitfyp0x/save_editor_v4.exe/file">Compiled Save Editor V4.0</a>
+<a href="https://www.mediafire.com/file/3xgvyexwitfyp0x/save_editor_v4.exe/file">Compiled Save Editor V4.0</a>
