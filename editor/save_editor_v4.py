@@ -161,20 +161,25 @@ class Ui_MainWindow(object):
             print("Unknow error occured in 'open_save'.\nError:", error)
     
     def refresh_save(self):
-        self.save = json.load(open(self.vars_["save_location"]))
-        self.path.clear()
+        try:
+            self.save = json.load(open(self.vars_["save_location"]))
+            self.path.clear()
 
-        self.path.append(self.save)
+            self.path.append(self.save)
 
-        self.search_bar.clear()
-        self.value_bar.clear()
-        self.display_variables()
+            self.search_bar.clear()
+            self.value_bar.clear()
+            self.display_variables()
+        except Exception as error:
+            os.system('cls')
+            print(f"An error occured while trying to refresh save.\n\nError: {error}")
 
     def save_dict_to_file(self):
         try:
             json.dump(self.save, open(self.vars_['save_location'], "w+"), indent=4, skipkeys=True)
             print(f"Saved Changes to: {self.vars_['save_location']}\n")
         except Exception as error:
+            os.system('cls')
             print(f"No save has been selected, unable to save variables.\n\nError: {error}")
 
     def profile_dict_to_file(self):
@@ -358,8 +363,6 @@ class Ui_MainWindow(object):
             
             else:
                 print("No known task was requested.\n")
-            
-
             
 
 if __name__ == "__main__":
