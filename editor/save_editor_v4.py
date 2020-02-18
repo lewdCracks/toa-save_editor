@@ -228,6 +228,7 @@ class Ui_MainWindow(object):
 
             except Exception as error: 
                 print('Unkown Error Occured: 1\n\n', error)
+                return False
     
     def update_variable(self):
         try:
