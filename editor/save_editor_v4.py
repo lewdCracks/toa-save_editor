@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -145,15 +144,18 @@ class Ui_MainWindow(object):
 
             self.vars_["save_location"] = self.savefile
             self.vars_["profile_location"] = '/'.join(self.profile)
-            self.get_data_location()
+            self.found = self.get_data_location()
 
 
             self.save = json.load(open(self.savefile))
             print(f"Save file has been successfully loaded.\nCurrent Save: {self.savefile}")
             self.path.append(self.save)
 
-            self.load_data_profile()
-            self.data_profile_handler(6)
+            if self.found:
+                self.load_data_profile()
+                self.data_profile_handler(6)
+            else:
+                pass
 
             self.display_variables()
 
@@ -207,19 +209,22 @@ class Ui_MainWindow(object):
         if os.path.isfile(self.expected_location):
             self.vars_["data_location"] = self.expected_location
             print("Location of 'data.json' was found.")
+            return True
             
         else:
             try:
                 print("Could not parse to location of 'data.json' please select it's location.\n")
                 self.path_to, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Please select the location of data.json", "", ".json Files (*.json)")
 
-                if os.path.isfile(self.path_to):
+                if os.path.isfile(self.path_to) and 'data.json' in self.path_to:
                     self.vars_["data_location"] = self.path_to
                     print("Selected location of 'data.json' is valid.")
+                    return True
 
                 else:
                     self.vars_["data_location"] = None
                     print("No valid location was selected for 'data.json', some features may be unavailable.")
+                    return False
 
             except Exception as error: 
                 print('Unkown Error Occured: 1\n\n', error)
