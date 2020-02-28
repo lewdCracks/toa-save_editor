@@ -1,4 +1,80 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from tkinter import *
+from bs4 import BeautifulSoup as BS
+
+
+class Updater(object):
+    def __init__(self):
+        self._app_version = 5
+        self._data_version = 4
+
+        self.root = Tk()
+        self.root.withdraw()
+        self.update()
+        self.root.destroy()
+    
+    def get_online_data(self):
+        self.url = "https://raw.githubusercontent.com/lewdCracks/toa-save_editor/master/json_data/data.json"
+        self.req = requests.get(self.url)
+        if self.req.status_code == 200 and self.req.url == self.url:
+            self.json_data = json.loads(self.req.content)
+            self.data_version = float(self.json_data['version_info']['data_version'])
+            self.app_version = float(self.json_data['version_info']['app_version'])
+            self.app_name = self.json_data['version_info']['app_name']
+            self.app_link = self.json_data['version_info']['app_link']
+            return True
+        else:
+            return False
+    
+    def get_download_url(self, url):
+        self.req = requests.get(url)
+        if self.req.status_code == 200 and self.req.url == url:
+            self.soup = BS(self.req.content, features='html.parser')
+            self.download_url = self.soup.find(class_='input').get('href')
+            return True, self.download_url
+        else:
+            return False, None
+
+    def update(self):
+        self.resp = self.get_online_data()
+        if self.resp:
+            if self.app_version > self._app_version:
+                self.choice = tkinter.messagebox.askquestion("Auto-Update", f"Your save editor is out of date would you like to request an update?.\n{self._app_version} < {self.app_version}")
+                if self.choice == 'yes':
+                    self.resp, self.dl_url = self.get_download_url(self.app_link)
+                    if self.resp:
+                        self.req = requests.get(self.dl_url)
+                        if self.req.status_code == 200 and self.req.url == self.dl_url:
+                            with open(self.app_name, 'wb+') as self.data:
+                                self.data.write(self.req.content) 
+                                self.data.close()
+                            self.choice = tkinter.messagebox.showinfo("Auto-Update", f"Update complete!\nYou can delete the old version of your save editor whenever you want.")
+                            self.newapp_path = os.path.join(os.getcwd(), self.app_name)
+                            subprocess.Popen(self.newapp_path)
+                            sys.exit(0)
+
+                        else:
+                            tkinter.messagebox.showerror("Link Request Error.", f"Media fire redirected therefore the download link could not be parsed.\n.{self.dl_url} != {self.req.url}")         
+                    else:
+                        tkinter.messagebox.showerror("Link Request Error.", f"Media fire redirected therefore the download link could not be parsed.\n.{self.dl_url} != {self.req.url}")         
+                        self.root.destroy()
+                else:
+                    pass
+            else:
+                print('Editor is up to date.')
+
+            if self.data_version > self._data_version:             
+                self.choice = tkinter.messagebox.askquestion("Auto-updater.", f"Your json data is out of date would you like to update it?.\nVersions: {self._data_version} < {self.data_version}")
+                if self.choice == 'yes':
+                    json.dump(self.json_data, open('data.json', 'w+'), indent=4)
+                else:
+                    pass
+            else:
+                print('JSON data is up to data.')
+
+        else:
+            tkinter.messagebox.showerror("Version Request Error.", "Github redirected therefore version data could not be parsed.\nAnother request will be made on the next launch.")
+            self.root.destroy()
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -123,7 +199,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "save_editor_v4"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "save_editor_v5"))
         self.search_bar.setPlaceholderText(_translate("MainWindow", "Search"))
         self.save_btn.setText(_translate("MainWindow", "Save Variables"))
         self.max_skill_btn.setText(_translate("MainWindow", "Max Skills"))
@@ -202,8 +278,7 @@ class Ui_MainWindow(object):
             print("Json loader error.\n\nError:",error)
      
     def get_data_location(self): # method to parse 'data.json' location - if it is unable to find it, it will then ask the user for its location
-        self.current_location = os.getcwd()
-        self.expected_location = os.path.join(self.current_location, "data.json")
+        self.expected_location = os.path.join(os.getcwd(), "data.json")
         os.system("cls")
 
         if os.path.isfile(self.expected_location):
@@ -372,10 +447,10 @@ class Ui_MainWindow(object):
             
 
 if __name__ == "__main__":
-    import os
-    import sys
-    import json
-    import time
+    import os, time, sys, json, requests
+    import tkinter.messagebox
+    import subprocess
+    Updater()
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
