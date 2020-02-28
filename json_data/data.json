@@ -3,7 +3,8 @@
         "data_version": 4,
         "app_version": 5,
         "app_name": "save_editor_v5.exe",
-        "app_link": "https://www.mediafire.com/file/syk9f5k872vhnqh/save_editor_v4-1.exe/file"
+        "app_link": "https://www.mediafire.com/file/syk9f5k872vhnqh/save_editor_v4-1.exe/file",
+        "auto-update": true
     },
     "achievements": {
         "ASS_TO_MOUTH": 1,
