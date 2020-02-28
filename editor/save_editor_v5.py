@@ -10,8 +10,22 @@ class Updater(object):
 
         self.root = Tk()
         self.root.withdraw()
-        self.update()
+        if self.check_toggle():
+            self.update()
+        else:
+            pass
         self.root.destroy()
+    
+    def check_toggle(self):
+        try:
+            self.json_data = json.load(open('data.json'))
+            if self.json_data['version_info']['auto-update']:
+                return True
+            else:
+                return False
+        except Exception as error:
+            print(f'Most likely could not find data.json to determine if auto-updates should be enabled.\nError:{error}')
+            return True
     
     def get_online_data(self):
         self.url = "https://raw.githubusercontent.com/lewdCracks/toa-save_editor/master/json_data/data.json"
