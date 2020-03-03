@@ -5,8 +5,13 @@ from bs4 import BeautifulSoup as BS
 
 class Updater(object):
     def __init__(self):
-        self._app_version = 5
-        self._data_version = 4
+        self._app_version = 5.1
+
+        try:
+            self._data_version = json.load(open('data.json'))['version_info']['data_version']
+        except Exception as error:
+            print("No data.json was found to check for version.")
+            self._data_version = 0
 
         self.root = Tk()
         self.root.withdraw()
@@ -213,7 +218,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "save_editor_v5"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "save_editor_v5.1"))
         self.search_bar.setPlaceholderText(_translate("MainWindow", "Search"))
         self.save_btn.setText(_translate("MainWindow", "Save Variables"))
         self.max_skill_btn.setText(_translate("MainWindow", "Max Skills"))
