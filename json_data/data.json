@@ -1,6 +1,6 @@
 {
     "version_info": {
-        "data_version": 4.4,
+        "data_version": 4.41,
         "app_version": 5.1,
         "app_name": "save_editor_v5-1.exe",
         "app_link": "https://www.mediafire.com/file/toipvgvkv59t3pi/save_editor_v5-1.exe/file",
@@ -22,7 +22,8 @@
         "PERFECT_TOY": 1,
         "QUETZAL_GODDESS_DEFEATED": 1,
         "QUETZAL_GODDESS_VIRGIN": 1,
-        "QUETZAL_GODDESS_LEVEL1": 1
+        "QUETZAL_GODDESS_LEVEL1": 1,
+        "WRONG_WAY": 1
     },
     "skills": {
         "GRIND_ON_IT_REVERSE": 0,
