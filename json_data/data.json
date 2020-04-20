@@ -1,10 +1,32 @@
 {
     "version_info": {
-        "data_version": 4.5,
+        "data_version": 4.51,
         "app_version": 5.1,
+        "dev": "@illiw#2079",
         "app_name": "save_editor_v5-1.exe",
         "app_link": "https://www.mediafire.com/file/toipvgvkv59t3pi/save_editor_v5-1.exe/file",
         "auto-update": true
+    },
+    "ticks": {
+        "auto-update": true,
+        "unlock-update": true,
+        "equip": false
+    },
+    "misc": {
+        "toa-data-path": "c:\\Users\\Owner\\Documents\\hcked\\test_env\\save_editor_v6\\.toa-data",
+        "current-save": "C:/Users/Owner/Documents/hcked/test_env/save_editor_v6/.toa-data\\save0.json",
+        "CGI-Seen": null,
+        "Events": null,
+        "Achievements": null,
+        "Max-Skills": null,
+        "Max-Perks": null
+    },
+    "unlocker": {
+        "CGI-Seen": true,
+        "Events": true,
+        "Achievements": false,
+        "Max-Skills": false,
+        "Max-Perks": false
     },
     "achievements": {
         "ASS_TO_MOUTH": 1,
@@ -2809,7 +2831,20 @@
         "DULLAHAN-DATE-ORAL": 1,
         "DULLAHAN-DATE-ORAL-END": 1,
         "DULLAHAN-DATE-ANAL": 1,
-        "DULLAHAN-DATE-END": 1
+        "DULLAHAN-DATE-END": 1,
+        "DARK-KNIGHT-SECOND-INTRO": 1,
+        "DARK-KNIGHT-SECOND-STEALTH": 1,
+        "DARK-KNIGHT-SECOND-NOSTEALTH": 1,
+        "DARK-KNIGHT-SECOND-FACEFUCK": 1,
+        "DARK-KNIGHT-SECOND-RESIST": 1,
+        "DARK-KNIGHT-SECOND-BALLSUCK": 1,
+        "DARK-KNIGHT-SECOND-RESIST-ALL": 1,
+        "DARK-KNIGHT-SECOND": 1,
+        "DARK-KNIGHT-SECOND-VICTORY": 1,
+        "DARK-KNIGHT-SECOND-DEFEAT": 1,
+        "DARK-KNIGHT-SECOND-SURRENDER": 1,
+        "DARK-KNIGHT-SECOND-DEFEAT-END": 1,
+        "DARK-KNIGHT-SECOND-SUBMIT": 1
     },
     "cgSeen": {
         "BLONDE_WEREWOLF_ORAL": 1,
@@ -3257,6 +3292,12 @@
         "WARLOCK_ANAL_ROUGH": 1,
         "WASP": 1,
         "WEREBITCH_ASS_TO_ASS": 1,
-        "NAGA": 1
+        "NAGA": 1,
+        "ETTIN": 1,
+        "ETTIN_RAISE": 1,
+        "ETTIN_FIGHT": 1,
+        "ETTIN_QUARREL": 1,
+        "ETTIN_LOOK": 1,
+        "ETTIN_EXPAND": 1
     }
 }
