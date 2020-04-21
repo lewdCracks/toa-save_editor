@@ -1,7 +1,7 @@
 {
     "version_info": {
         "data_version": 4.51,
-        "app_version": 5.2,
+        "app_version": 5.1,
         "dev": "@illiw#2079",
         "app_name": "save_editor_v5-1.exe",
         "app_link": "https://www.mediafire.com/file/toipvgvkv59t3pi/save_editor_v5-1.exe/file",
@@ -15,11 +15,6 @@
     "misc": {
         "toa-data-path": "",
         "current-save": "",
-        "CGI-Seen": null,
-        "Events": null,
-        "Achievements": null,
-        "Max-Skills": null,
-        "Max-Perks": null
     },
     "unlocker": {
         "CGI-Seen": true,
