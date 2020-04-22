@@ -1,6 +1,6 @@
 {
     "version_info": {
-        "data_version": 4.51,
+        "data_version": 4.52,
         "app_version": 5.1,
         "dev": "@illiw#2079",
         "app_name": "save_editor_v5-1.exe",
@@ -14,7 +14,7 @@
     },
     "misc": {
         "toa-data-path": "",
-        "current-save": "",
+        "current-save": ""
     },
     "unlocker": {
         "CGI-Seen": true,
