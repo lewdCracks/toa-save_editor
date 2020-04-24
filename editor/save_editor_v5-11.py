@@ -2,10 +2,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import *
 from bs4 import BeautifulSoup as BS
 
-
 class Updater(object):
     def __init__(self):
-        self._app_version = 5.1
+        self._app_version = 5.11
 
         try:
             self._data_version = json.load(open('data.json'))['version_info']['data_version']
@@ -33,7 +32,7 @@ class Updater(object):
             return True
     
     def get_online_data(self):
-        self.url = "https://raw.githubusercontent.com/lewdCracks/toa-save_editor/master/json_data/data.json"
+        self.url = "https://raw.githubusercontent.com/lewdCracks/toa-save_editor/master/resources/data/appdata/data.json"
         self.req = requests.get(self.url)
         if self.req.status_code == 200 and self.req.url == self.url:
             self.json_data = json.loads(self.req.content)
@@ -369,7 +368,6 @@ class Ui_MainWindow(object):
     def item_handler(self, back):
         self.item = self.list_values.currentItem().text().split(' :')[0]
         self.search_bar.clear()
-
         if self.val_handler[self.item]: # displays item & saves the item to dict
             self.vars_['current_var'] = self.item
             self.display_var = self.path[-1][self.item]
