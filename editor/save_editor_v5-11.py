@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as BS
 
 class Updater(object):
     def __init__(self):
-        self._app_version = 5.11
+        self._app_version = 5.2
 
         try:
             self._data_version = json.load(open('data.json'))['version_info']['data_version']
