@@ -1,10 +1,10 @@
 {
     "version_info": {
-        "data_version": 4.51,
-        "app_version": 5.11,
+        "data_version": 4.6,
+        "app_version": 5.1,
         "dev": "@illiw#2079",
         "app_name": "save_editor_v5-1.exe",
-        "app_link": "https://www.mediafire.com/file/t7ar9rqwoqyj8b9/save_editor_v5-11.exe/file",
+        "app_link": "https://www.mediafire.com/file/toipvgvkv59t3pi/save_editor_v5-1.exe/file",
         "auto-update": true
     },
     "ticks": {
@@ -13,13 +13,8 @@
         "equip": false
     },
     "misc": {
-        "toa-data-path": "c:\\Users\\Owner\\Documents\\hcked\\test_env\\save_editor_v6\\.toa-data",
-        "current-save": "c:\\Users\\Owner\\Documents\\hcked\\test_env\\save_editor_v6\\.toa-data\\save0.json",
-        "CGI-Seen": 3,
-        "Events": 2,
-        "Achievements": 1,
-        "Max-Skills": 4,
-        "Max-Perks": 5
+        "toa-data-path": "",
+        "current-save": ""
     },
     "unlocker": {
         "CGI-Seen": true,
@@ -656,20 +651,7 @@
         "HARDER": 3,
         "FORAGER": 3,
         "SURVEYOR": 3,
-        "VERSATILE": 3,
-        "SPECIALIST": 0,
-        "BLOWJOB_EXPERT": 0,
-        "PERFECT_BOTTOM": 0,
-        "CRANK_MASTER": 0,
-        "WEAK_TO_ANAL": 0,
-        "ANAL_ADDICT": 0,
-        "CREAMPIE_COLLECTOR": 0,
-        "SIZE_QUEEN": 0,
-        "LADY_OF_THE_NIGHT": 0,
-        "BEASTMASTER": 0,
-        "CUCKOO_FOR_CUCKOO": 0,
-        "BITCH": 0,
-        "POWER_BOTTOM": 0
+        "VERSATILE": 3
     },
     "descriptions": {
         "SKILLED": "Increases number of skill points to allocate by 2 per perk rank. (5 Ranks)",
@@ -2844,7 +2826,20 @@
         "DULLAHAN-DATE-ORAL": 1,
         "DULLAHAN-DATE-ORAL-END": 1,
         "DULLAHAN-DATE-ANAL": 1,
-        "DULLAHAN-DATE-END": 1
+        "DULLAHAN-DATE-END": 1,
+        "DARK-KNIGHT-SECOND-INTRO": 1,
+        "DARK-KNIGHT-SECOND-STEALTH": 1,
+        "DARK-KNIGHT-SECOND-NOSTEALTH": 1,
+        "DARK-KNIGHT-SECOND-FACEFUCK": 1,
+        "DARK-KNIGHT-SECOND-RESIST": 1,
+        "DARK-KNIGHT-SECOND-BALLSUCK": 1,
+        "DARK-KNIGHT-SECOND-RESIST-ALL": 1,
+        "DARK-KNIGHT-SECOND": 1,
+        "DARK-KNIGHT-SECOND-VICTORY": 1,
+        "DARK-KNIGHT-SECOND-DEFEAT": 1,
+        "DARK-KNIGHT-SECOND-SURRENDER": 1,
+        "DARK-KNIGHT-SECOND-DEFEAT-END": 1,
+        "DARK-KNIGHT-SECOND-SUBMIT": 1
     },
     "cgSeen": {
         "BLONDE_WEREWOLF_ORAL": 1,
@@ -3292,6 +3287,12 @@
         "WARLOCK_ANAL_ROUGH": 1,
         "WASP": 1,
         "WEREBITCH_ASS_TO_ASS": 1,
-        "NAGA": 1
+        "NAGA": 1,
+        "ETTIN": 1,
+        "ETTIN_RAISE": 1,
+        "ETTIN_FIGHT": 1,
+        "ETTIN_QUARREL": 1,
+        "ETTIN_LOOK": 1,
+        "ETTIN_EXPAND": 1
     }
 }
