@@ -3,91 +3,34 @@ from tkinter import Tk
 from subprocess import Popen
 from bs4 import BeautifulSoup as BS
 from datetime import datetime
-import sys, os, json, logging, tkinter.messagebox, requests
-
+import sys, os, json, logging, tkinter.messagebox, re
 
 LOG_FILENAME = "resources/logs/errors.log"
 logging.basicConfig(filename=LOG_FILENAME, level=logging.ERROR)
 
 class BackEnd(object):
     def __init__(self):
-        self.version = 6
-        self.dev = "@illiw#2079"
-        self.data = self.load_data("resources/data/appdata/data.json")
-        self.dev = self.data['version_info']['dev']
- 
-        try:
-            if self.data['ticks']['auto-update']:
-                print("Updater work in progress...")
-                # self.update()
-            else:
-                print("Auto-Updates are turned off, skipping to launch...")
-                pass
-        except Exception as error:
-            self.log_error(error)
-
-    def load_data(self, path):
+        """ Custom backend class for save_editor_V6, some useful functions made easier to use """
+        self.dev = "@lew"
+        print('Loaded Backend.')
+    
+    def load_data(self, path): # load json data
+        """ Load json file from path """
         try:
             data = json.load(open(path))
             return data
         except Exception as error:
             self.log_error(error)
     
-    def save_data(self, data, path):
+    def save_data(self, data, path): # save json data
+        """ Save dict to json file path """
         try:
             json.dump(data, open(path, "w+"), indent=4)
         except Exception as error:
-            self.log_error(error)   
-
-    def fetch_data(self):
-        self.url = "https://raw.githubusercontent.com/lewdCracks/toa-save_editor/master/json_data/data.json"
-        try:
-            self.req = requests.get(self.url)
-            if self.req.status_code == 200 and self.req.url == self.url:
-                self.up_data = json.loads(self.req.content)
-                return True, self.up_data
-            else:
-                return False, None
-        except Exception as error:
-            self.log_error(error)
-            raise error
-
-    def get_download_url(self, url):
-        try:
-            self.req = requests.get(url)
-            if self.req.status_code == 200 and self.req.url == url:
-                self.soup = BS(self.req.content, features='html.parser')
-                self.download_url = self.soup.find(class_='input').get('href')
-                return True, self.download_url
-            else:
-                return False, None
-        except Exception as error:
-            self.log_error(error)
-            raise error
-    
-    def download_file(self, path):
-        pass
-    
-    def update(self): # come back later - multiple files
-        self.resp, self.new_data = self.fetch_data()
-        print('Checking for updates...')
-        try:
-            if self.resp:
-                if self.version < self.new_data['app_version']:
-                    if self.ask_user("Auto-Updater", f"Your save editor is out of date would you like to request an update?.\n{self.version} < {self.new_data['app_version']}"):
-                        pass
-                else:
-                    pass
-                
-                if self.data['data_version'] < self.new_data['data_version']:
-                    pass
-                else:
-                    pass
-                
-        except Exception as error:
             self.log_error(error)
 
-    def ask_user(self, head ,message):
+    def ask_user(self, head, message): # tkinter box ask for boolean answer
+        """ Ask the user a question using tkinter.messagebox, returns True or False"""
         self.root = Tk()
         self.root.withdraw()
         self.c = tkinter.messagebox.askquestion(head, message)
@@ -97,22 +40,81 @@ class BackEnd(object):
             return False
         self.root.destroy()
     
-    def show_user(self, head, message):
+    def show_user(self, head, message): # tkinter box show user info
+        """ Show user info using tkinter.messagebox: void """
         self.root = Tk()
         self.root.withdraw()
         self.c = tkinter.messagebox.showinfo(head, message)
-        if self.c == 'yes':
-            return True
-        else:
-            return False
-        self.root.destroy()
- 
-    def log_error(self, error):
+        self.root.destroy()    
+
+    def log_error(self, error): # log error to LOG_FILENAME path
+        """ Displays tkinter.messagebox error, shows discord dev name set with self.dev, records to LOG_FILENAME """
         self.root = Tk()
         self.root.withdraw()
         logging.exception({error})
-        tkinter.messagebox.showerror('Woops!', f"You ran into an error please report to {self.dev} on discord.\n\nError: {error}\n\nFull error log is available in logs folder.")
+        tkinter.messagebox.showerror('Woops!', f"You ran into an error please report to {self.dev} on discord if the error was fatal.\n\nError: {error}\n\nFull error log is available in logs folder.")
         self.root.destroy()
+
+util = BackEnd()
+
+try:
+    os.system('jar xf TalesOfAndrogyny.jar script/encounters.json')
+
+    with open("script/encounters.json", 'r') as data:
+        a = data.readlines()
+
+    z = json.load(open("resources/data/appdata/edit-data.json"))
+
+    def cg_content():
+        cg = []
+        a_cg = []
+        added = 0
+        for i in a:
+            if 'foreground' in i:
+                b = i.strip().replace(',','').replace('"', '').replace(':', '').split(' ')[-1]
+                if b in z['cgSeen'].keys():
+                    pass
+                else:
+                    z['cgSeen'][b] = 1
+                    print(b)
+                    added+=1
+                cg.append(b)
+                
+                
+            elif "animatedForeground" in i:
+                b = i.strip().replace(',','').replace('"', '').replace(':', '').split(' ')[-1]
+                if b in z['animatedCgSeen'].keys():
+                    pass
+                else:
+                    z['animatedCgSeen'][b] = 1
+                    print(b)
+                    added+=1
+                a_cg.append(b)
+
+            
+        print(f'Added: {added}')
+        return cg, a_cg
+        
+    def event_content():
+        new_events = []
+        pattern = re.compile('"(.*)":')
+        for i in a:
+            matches = pattern.finditer(i)
+            for m in matches:
+                mat = m.group(1)
+                if mat.isupper():
+                    z['events'][mat] = 1
+                    new_events.append(mat)
+
+        return new_events
+
+    c,ac = cg_content()
+    nv = event_content()
+
+    z = json.dump(z ,open("resources/data/appdata/edit-data.json", "w+"), indent=4)
+except Exception as error:
+    util.log_error(error)
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -498,23 +500,23 @@ class Ui_MainWindow(object):
         self.detail_search_bar = QtWidgets.QLineEdit(self.char_tab)
         self.detail_search_bar.setObjectName("detail_search_bar")
         self.gridLayout_6.addWidget(self.detail_search_bar, 1, 3, 1, 2)
-        self.penis_label = QtWidgets.QLabel(self.char_tab)
+        self.breasts_label = QtWidgets.QLabel(self.char_tab)
         font = QtGui.QFont()
         font.setBold(False)
         font.setItalic(True)
         font.setUnderline(True)
         font.setWeight(50)
-        self.penis_label.setFont(font)
-        self.penis_label.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.penis_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.penis_label.setObjectName("penis_label")
-        self.gridLayout_6.addWidget(self.penis_label, 7, 1, 1, 1)
+        self.breasts_label.setFont(font)
+        self.breasts_label.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.breasts_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.breasts_label.setObjectName("breasts_label")
+        self.gridLayout_6.addWidget(self.breasts_label, 7, 1, 1, 1)
         self.lip_dropdown = QtWidgets.QComboBox(self.char_tab)
         self.lip_dropdown.setObjectName("lip_dropdown")
         self.gridLayout_6.addWidget(self.lip_dropdown, 5, 2, 1, 1)
-        self.penis_dropdown = QtWidgets.QComboBox(self.char_tab)
-        self.penis_dropdown.setObjectName("penis_dropdown")
-        self.gridLayout_6.addWidget(self.penis_dropdown, 7, 2, 1, 1)
+        self.breast_dropdown = QtWidgets.QComboBox(self.char_tab)
+        self.breast_dropdown.setObjectName("breast_dropdown")
+        self.gridLayout_6.addWidget(self.breast_dropdown, 7, 2, 1, 1)
         self.player_detail_list = QtWidgets.QListWidget(self.char_tab)
         self.player_detail_list.setObjectName("player_detail_list")
         self.gridLayout_6.addWidget(self.player_detail_list, 2, 3, 8, 2)
@@ -738,24 +740,9 @@ class Ui_MainWindow(object):
         self.settings_tab.setObjectName("settings_tab")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.settings_tab)
         self.gridLayout_5.setObjectName("gridLayout_5")
-        self.current_saves_label = QtWidgets.QLabel(self.settings_tab)
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.current_saves_label.setFont(font)
-        self.current_saves_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.current_saves_label.setObjectName("current_saves_label")
-        self.gridLayout_5.addWidget(self.current_saves_label, 0, 0, 1, 2)
-        self.backups_label = QtWidgets.QLabel(self.settings_tab)
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.backups_label.setFont(font)
-        self.backups_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.backups_label.setObjectName("backups_label")
-        self.gridLayout_5.addWidget(self.backups_label, 0, 2, 1, 1)
+        self.current_save_bar = QtWidgets.QLineEdit(self.settings_tab)
+        self.current_save_bar.setObjectName("current_save_bar")
+        self.gridLayout_5.addWidget(self.current_save_bar, 2, 4, 1, 1)
         self.logs_label = QtWidgets.QLabel(self.settings_tab)
         font = QtGui.QFont()
         font.setBold(True)
@@ -771,15 +758,43 @@ class Ui_MainWindow(object):
         self.backups_list = QtWidgets.QListWidget(self.settings_tab)
         self.backups_list.setObjectName("backups_list")
         self.gridLayout_5.addWidget(self.backups_list, 1, 2, 1, 1)
-        self.logs_list = QtWidgets.QListWidget(self.settings_tab)
-        self.logs_list.setObjectName("logs_list")
-        self.gridLayout_5.addWidget(self.logs_list, 1, 3, 1, 2)
-        self.backup_btn = QtWidgets.QPushButton(self.settings_tab)
-        self.backup_btn.setObjectName("backup_btn")
-        self.gridLayout_5.addWidget(self.backup_btn, 2, 0, 1, 2)
+        self.current_saves_label = QtWidgets.QLabel(self.settings_tab)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        self.current_saves_label.setFont(font)
+        self.current_saves_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.current_saves_label.setObjectName("current_saves_label")
+        self.gridLayout_5.addWidget(self.current_saves_label, 0, 0, 1, 2)
+        self.check_update_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.check_update_btn.setObjectName("check_update_btn")
+        self.gridLayout_5.addWidget(self.check_update_btn, 3, 2, 1, 1)
         self.load_backup_btn = QtWidgets.QPushButton(self.settings_tab)
         self.load_backup_btn.setObjectName("load_backup_btn")
         self.gridLayout_5.addWidget(self.load_backup_btn, 2, 2, 1, 1)
+        self.backups_label = QtWidgets.QLabel(self.settings_tab)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        self.backups_label.setFont(font)
+        self.backups_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.backups_label.setObjectName("backups_label")
+        self.gridLayout_5.addWidget(self.backups_label, 0, 2, 1, 1)
+        self.logs_list = QtWidgets.QListWidget(self.settings_tab)
+        self.logs_list.setObjectName("logs_list")
+        self.gridLayout_5.addWidget(self.logs_list, 1, 3, 1, 2)
+        self.select_save_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.select_save_btn.setToolTipDuration(4)
+        self.select_save_btn.setObjectName("select_save_btn")
+        self.gridLayout_5.addWidget(self.select_save_btn, 3, 1, 1, 1)
+        self.export_logs_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.export_logs_btn.setObjectName("export_logs_btn")
+        self.gridLayout_5.addWidget(self.export_logs_btn, 3, 3, 1, 2)
+        self.open_save_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.open_save_btn.setObjectName("open_save_btn")
+        self.gridLayout_5.addWidget(self.open_save_btn, 3, 0, 1, 1)
         self.current_save_label = QtWidgets.QLabel(self.settings_tab)
         font = QtGui.QFont()
         font.setBold(False)
@@ -790,26 +805,19 @@ class Ui_MainWindow(object):
         self.current_save_label.setAlignment(QtCore.Qt.AlignCenter)
         self.current_save_label.setObjectName("current_save_label")
         self.gridLayout_5.addWidget(self.current_save_label, 2, 3, 1, 1)
-        self.current_save_bar = QtWidgets.QLineEdit(self.settings_tab)
-        self.current_save_bar.setObjectName("current_save_bar")
-        self.gridLayout_5.addWidget(self.current_save_bar, 2, 4, 1, 1)
-        self.open_save_btn = QtWidgets.QPushButton(self.settings_tab)
-        self.open_save_btn.setObjectName("open_save_btn")
-        self.gridLayout_5.addWidget(self.open_save_btn, 3, 0, 1, 1)
-        self.select_save_btn = QtWidgets.QPushButton(self.settings_tab)
-        self.select_save_btn.setToolTipDuration(4)
-        self.select_save_btn.setObjectName("select_save_btn")
-        self.gridLayout_5.addWidget(self.select_save_btn, 3, 1, 1, 1)
-        self.check_update_btn = QtWidgets.QPushButton(self.settings_tab)
-        self.check_update_btn.setObjectName("check_update_btn")
-        self.gridLayout_5.addWidget(self.check_update_btn, 3, 2, 1, 1)
-        self.export_logs_btn = QtWidgets.QPushButton(self.settings_tab)
-        self.export_logs_btn.setObjectName("export_logs_btn")
-        self.gridLayout_5.addWidget(self.export_logs_btn, 3, 3, 1, 2)
+        self.backup_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.backup_btn.setObjectName("backup_btn")
+        self.gridLayout_5.addWidget(self.backup_btn, 2, 0, 1, 2)
+        self.save_save_btn = QtWidgets.QPushButton(self.settings_tab)
+        self.save_save_btn.setObjectName("save_save_btn")
+        self.gridLayout_5.addWidget(self.save_save_btn, 4, 0, 1, 2)
         self.auto_update_check_box = QtWidgets.QCheckBox(self.settings_tab)
         self.auto_update_check_box.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.auto_update_check_box.setObjectName("auto_update_check_box")
-        self.gridLayout_5.addWidget(self.auto_update_check_box, 4, 0, 1, 5)
+        self.gridLayout_5.addWidget(self.auto_update_check_box, 4, 3, 1, 2)
+        self.auto_save_check_box = QtWidgets.QCheckBox(self.settings_tab)
+        self.auto_save_check_box.setObjectName("auto_save_check_box")
+        self.gridLayout_5.addWidget(self.auto_save_check_box, 4, 2, 1, 1)
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("resources/images/tab_icons/settings.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.tabWidget.addTab(self.settings_tab, icon5, "")
@@ -824,40 +832,31 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(4)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.app_data = util.load_data('resources/data/appdata/app-data.json')
+        self.edit_data = util.load_data('resources/data/appdata/edit-data.json')
         self._save = {}
         self.logit_log = {}
-        self.current_var = ''
-        self.cvt = ''
-        self.stats_details = ['name', 'level', 'baseStrength','baseEndurance', 'baseAgility', 'basePerception', 'magicPoints',
-                             'baseMagic', 'baseCharisma', 'manaReserve', 'currentHealth', 'currentStamina', 'focus', 'fortune', 'skillPoints', 'perkPoints', 'willpower']
-        self.femininity = ["MASCULINE","UNMASCULINE","ANDROGYNOUS","EFFEMINATE", "GIRLY", "FEMININE", "BITCH", "MALE", "FEMALE"]
-        self.breast = ["LITTLE", "FLAT", "HANDFUL", "FUN"]
-        self.bootyliciousness = ["Bubble", "Round", "Fat"]
-        self.lipFullness = ["Thin", "Pouty", "Beestung", "Full"]
-        self.eyeColor = ["Blue", "Teal", "Pink", "Golden"]
-        self.hairColor = ["Black", "Brown", "Red", "Blonde", "Pink", "Mix"]
-        self.race = ["Lowlander", "Highlander", "Mountainman", "Elfblood", "Orcblood"]
-        self.jobCLASS = ["WARRIOR", "PALADIN", "THIEF", "RANGER", "MAGE", "ENCHANTRESS", "BITCH", "MARE", "BUNNY", "QUEEN", "PROSTITUTE", "SCHOOLGIRL", "LEWD_SCHOOLGIRL"]
-        self.settings = util.load_data('resources/data/appdata/data.json')
-        self.ticks = self.settings['ticks']
         self.obj_ticks = {self.auto_update_check_box: 'auto-update', self.unlock_check_box: 'unlock-update'}
+        self.ticks = self.app_data['ticks']
+        self.cvt = ''
         
         self.load_tick_states()
         self.locate_saves(True)
         self.load_save_data()
         self.load_unlocker_state()
-        self.load_current_save(self.settings['misc']['current-save'])
+        self.load_current_save(self.app_data['misc']['current-save'])
         self.data_profile_handler(7)
+        self.load_box_states()
         self.display_skills()
         self.display_perks()
         self.display_stats()
 
-        if self.settings['ticks']['unlock-update']:
+        if self.app_data['ticks']['unlock-update']:
             self.run_unlocker()
-        
+
         self.auto_update_check_box.clicked.connect(lambda param: self.tick_box(self.auto_update_check_box))
         self.unlock_check_box.clicked.connect(lambda param: self.tick_box(self.unlock_check_box))
         self.backup_btn.clicked.connect(self.backup_save)
@@ -877,6 +876,14 @@ class Ui_MainWindow(object):
         self.player_detail_list.itemClicked.connect(lambda param: self.list_item_handler(self.player_detail_list, self.player_value_bar, 'c'))
         self.sp_value_bar.textChanged.connect(lambda param: self.save_current_var(self.sp_value_bar))
         self.player_value_bar.textChanged.connect(lambda param: self.save_current_var(self.player_value_bar))
+        self.race_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.hair_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.eye_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.lip_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.butt_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.breast_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.fem_dropdown.currentTextChanged.connect(self.save_dropdown)
+        self.job_dropdown.currentTextChanged.connect(self.save_dropdown)
 
 
     def retranslateUi(self, MainWindow):
@@ -900,7 +907,7 @@ class Ui_MainWindow(object):
         self.hair_label.setText(_translate("MainWindow", "Hair Color"))
         self.lip_label.setText(_translate("MainWindow", "Lip Type"))
         self.detail_search_bar.setPlaceholderText(_translate("MainWindow", "Search"))
-        self.penis_label.setText(_translate("MainWindow", "Penis Size"))
+        self.breasts_label.setText(_translate("MainWindow", "Breasts"))
         self.fem_label.setText(_translate("MainWindow", "Femininity"))
         self.eye_label.setText(_translate("MainWindow", "Eye Color"))
         self.player_value_bar.setPlaceholderText(_translate("MainWindow", "Value"))
@@ -919,19 +926,34 @@ class Ui_MainWindow(object):
         self.not_selected_label.setText(_translate("MainWindow", "Not Selected"))
         self.selected_label.setText(_translate("MainWindow", "Selected"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.unlocker_tab), _translate("MainWindow", "Unlocker"))
-        self.current_saves_label.setText(_translate("MainWindow", "Current Saves"))
-        self.backups_label.setText(_translate("MainWindow", "Back-ups"))
         self.logs_label.setText(_translate("MainWindow", "Logs"))
-        self.backup_btn.setText(_translate("MainWindow", "Backup"))
+        self.current_saves_label.setText(_translate("MainWindow", "Current Saves"))
+        self.check_update_btn.setText(_translate("MainWindow", "Check for Updates"))
         self.load_backup_btn.setText(_translate("MainWindow", "Load Backup"))
-        self.current_save_label.setText(_translate("MainWindow", "Current Save:"))
-        self.open_save_btn.setText(_translate("MainWindow", "Open"))
+        self.backups_label.setText(_translate("MainWindow", "Back-ups"))
         self.select_save_btn.setToolTip(_translate("MainWindow", "Or double click a list item"))
         self.select_save_btn.setText(_translate("MainWindow", "Select"))
-        self.check_update_btn.setText(_translate("MainWindow", "Check for Updates"))
         self.export_logs_btn.setText(_translate("MainWindow", "Export Logs"))
+        self.open_save_btn.setText(_translate("MainWindow", "Open"))
+        self.current_save_label.setText(_translate("MainWindow", "Current Save:"))
+        self.backup_btn.setText(_translate("MainWindow", "Backup"))
+        self.save_save_btn.setText(_translate("MainWindow", "Save Changes"))
         self.auto_update_check_box.setText(_translate("MainWindow", "Auto-Update"))
+        self.auto_save_check_box.setText(_translate("MainWindow", "Auto-Save"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.settings_tab), _translate("MainWindow", "Settings"))
+
+    def save_dropdown(self):
+        self._save['player']["race"] = self.race_dropdown.currentText()
+        self._save['player']["hairColor"] = self.hair_dropdown.currentText()
+        self._save['player']["eyeColor"] = self.eye_dropdown.currentText()
+        self._save['player']["lipFullness"] = self.lip_dropdown.currentText()
+        self._save['player']["bootyliciousness"] = self.butt_dropdown.currentText()
+        self._save['player']["breast"] = self.breast_dropdown.currentText()
+        self._save['player']["femininity"] = self.fem_dropdown.currentText()
+        self._save['player']["jobClass"] = self.job_dropdown.currentText()
+
+        self.logit("Appearance Change", "Non-specified")
+        self.save_save()
 
     def logit(self, event, details):
         try:
@@ -946,7 +968,16 @@ class Ui_MainWindow(object):
         name = f'logit_{ts}_{ord(os.urandom(1))}.json'
         util.save_data(self.logit_log, f'resources/logs/{name}')
         util.show_user('Logit.', f'Action Log has been successfully saved!\n\nIt can be found at:\nresources/logs/{name}')
-    
+
+    def load_box_states(self): # spaghetti
+        try:
+            box_objs = {self.race_dropdown : "race", self.hair_dropdown : "hairColor", self.eye_dropdown: "eyeColor", self.lip_dropdown: "lipFullness",
+                    self.butt_dropdown: "bootyliciousness", self.fem_dropdown: "femininity", self.breast_dropdown : "breast", self.job_dropdown : 'jobClass'}
+            for obj in box_objs:
+                self.add_combo_items(obj, self.app_data['comboBoxValues'][box_objs[obj]], self._save['player'][box_objs[obj]])
+        except Exception as error:
+            util.log_error(error)
+
     def display_skills(self):
         try:
             self.display_list(self.skill_list, self._save['player']['skills'], search=self.skill_search_bar.text().upper(), display_value=True)
@@ -962,20 +993,61 @@ class Ui_MainWindow(object):
     def display_stats(self):
         try:
             self.player_detail_list.clear()
-            for d in self.stats_details:
+            for d in self.app_data['player_details']:
                 if self.detail_search_bar.text() in d:
                     self.player_detail_list.addItem(f"{d} : {self._save['player'][d]}")
         except Exception as error:
             util.log_error(error)
-    
-    def add_combo_item(self, obj, data):
+
+    def add_combo_items(self, obj, data, current):
         try:
             obj.clear()
+            obj.addItem(current)
             for d in data:
-                obj.addItem(d)
+                if not d == current:
+                    obj.addItem(d)
         except Exception as error:
             util.log_error(error)
+
+    def load_unlocker_state(self):
+        unlocker = self.app_data['unlocker']
+        t = []
+        f = []
+        for d in unlocker:
+            if unlocker[d]:
+                t.append(d)
+            else:
+                f.append(d)
         
+        self.display_list(self.not_selected_list, f)
+        self.display_list(self.selected_list, t)
+
+    def load_tick_states(self):
+        try:
+            for t in self.obj_ticks:
+                a = self.ticks[self.obj_ticks[t]]
+                if a == True:
+                    s = 2
+                else:
+                    s = 0
+                t.setCheckState(s)
+        except Exception as error:
+            util.log_error(error)
+
+    def tick_box(self, box):
+        try:
+            if box.checkState() == 0:
+                state = False
+            else:
+                state = True
+
+            self.ticks[ self.obj_ticks[box] ] = state
+
+        except Exception as error:
+            util.log_error(error)
+
+        util.save_data(self.app_data, "resources/data/appdata/app-data.json")
+
     def save_current_var(self, obj): # type conversion
         try:
             self.val = obj.text()
@@ -1004,60 +1076,66 @@ class Ui_MainWindow(object):
             self.save_save()
         except Exception as error:
             util.log_error(error)
-        
+
     def list_item_handler(self, obj, obj2, sp, split=' : '):
         try:
+            self.cvt = sp
             self.items = obj.currentItem().text().split(' : ')
             self.current_var = self.items[0]
             obj2.setText(self.items[-1])
             self.data_profile_handler(6)
-            self.cvt = sp
         except Exception as error:
+            print('er')
             util.log_error(error)
 
     def unlocker_selector(self, n):
         try:
             if n == 1:
-                self.settings['unlocker'][self.selected_list.currentItem().text()] = False
+                self.app_data['unlocker'][self.selected_list.currentItem().text()] = False
             else:
-                self.settings['unlocker'][self.not_selected_list.currentItem().text()] = True
+                self.app_data['unlocker'][self.not_selected_list.currentItem().text()] = True
 
-            util.save_data(self.settings, "resources/data/appdata/data.json")
+            util.save_data(self.app_data, "resources/data/appdata/app-data.json")
             self.load_unlocker_state()
+        except Exception as error:
+            util.log_error(error)
+
+    def display_list(self, obj, data, search='', display_value=False):
+        obj.clear()
+        try:
+            for d in data:
+                if search in d:
+                    if display_value:
+                        obj.addItem(f"{d} : {data[d]}")
+                    else:
+                        obj.addItem(d)
         except Exception as error:
             util.log_error(error)
 
     def set_current_save(self):
         try:
             txt = self.saves_list.currentItem().text()
-            d = os.path.join(self.settings['misc']['toa-data-path'] , txt)
-            self.settings['misc']['current-save'] = d
+            d = os.path.join(self.app_data['misc']['toa-data-path'] , txt)
+            self.app_data['misc']['current-save'] = d
             self.current_save_bar.setText(txt)
             self.load_current_save(d)
             self.logit('set-save', d)
+            self.data_profile_handler(7)
+            self.load_box_states()
+            self.display_skills()
+            self.display_perks()
+            self.display_stats()
         except Exception as error:
             if type(error) == AttributeError:
                 pass
             else:
                 util.log_error(error)
         
-        util.save_data(self.settings, "resources/data/appdata/data.json")
-    
-    def load_current_save(self, path):
-        self._save = util.load_data(path)
-    
-    def save_save(self):
-        util.save_data(self._save, self.settings['misc']['current-save'])
-        self.logit('saved', self.settings['misc']['current-save'])
+        util.save_data(self.app_data, "resources/data/appdata/app-data.json")
 
-    def load_save_data(self):
-        self.display_list(self.saves_list, self.get_path_list(self.settings['misc']['toa-data-path']))
-        self.display_list(self.backups_list, self.get_path_list('resources/data/backups'))
-        self.current_save_bar.setText(self.settings['misc']['current-save'])
-    
     def backup_save(self):
         try:
-            src = os.path.join(self.settings['misc']['toa-data-path'], self.saves_list.currentItem().text())
+            src = os.path.join(self.app_data['misc']['toa-data-path'], self.saves_list.currentItem().text())
             dest = os.path.join('resources/data/backups', self.saves_list.currentItem().text())
             data = util.load_data(src)
             util.save_data(data,dest)
@@ -1074,7 +1152,7 @@ class Ui_MainWindow(object):
     def load_backup(self):
         try:
             src = os.path.join('resources/data/backups', self.backups_list.currentItem().text())
-            dest = os.path.join(self.settings['misc']['toa-data-path'], self.backups_list.currentItem().text())
+            dest = os.path.join(self.app_data['misc']['toa-data-path'], self.backups_list.currentItem().text())
             data = util.load_data(src)
             util.save_data(data,dest)
             util.show_user("BackUps.", "Loaded backup succesfully!")
@@ -1087,58 +1165,23 @@ class Ui_MainWindow(object):
 
         self.load_save_data()   
 
-    def load_unlocker_state(self):
-        unlocker = self.settings['unlocker']
-        t = []
-        f = []
-        for d in unlocker:
-            if unlocker[d]:
-                t.append(d)
-            else:
-                f.append(d)
-        
-        self.display_list(self.not_selected_list, f)
-        self.display_list(self.selected_list, t)
-        
-    def load_tick_states(self):
-        try:
-            for t in self.obj_ticks:
-                a = self.ticks[self.obj_ticks[t]]
-                if a == True:
-                    s = 2
-                else:
-                    s = 0
-                t.setCheckState(s)
-        except Exception as error:
-            util.log_error(error)
+    def load_save_data(self):
+        self.display_list(self.saves_list, self.get_path_list(self.app_data['misc']['toa-data-path']))
+        self.display_list(self.backups_list, self.get_path_list('resources/data/backups'))
+        self.current_save_bar.setText(self.app_data['misc']['current-save'])
 
-    def tick_box(self, box):
-        try:
-            if box.checkState() == 0:
-                state = False
-            else:
-                state = True
+    def save_save(self):
+        util.save_data(self._save, self.app_data['misc']['current-save'])
+        self.logit('saved', self.app_data['misc']['current-save'])
 
-            self.ticks[ self.obj_ticks[box] ] = state
+    def load_current_save(self, path):
+        if path == '':
+            path = os.path.join(self.app_data['misc']['toa-data-path'], 'save0.json')
+            self.app_data['misc']['current-save'] = path
+            util.save_data(self.app_data, "resources/data/appdata/app-data.json")
 
-        except Exception as error:
-            util.log_error(error)
+        self._save = util.load_data(path)
 
-        util.save_data(self.settings, "resources/data/appdata/data.json")
-    
-    def display_list(self, obj, data, search='', display_value=False):
-        obj.clear()
-        try:
-            for d in data:
-                if search in d:
-                    if display_value:
-                        obj.addItem(f"{d} : {data[d]}")
-                    else:
-                        obj.addItem(d)
-        except Exception as error:
-            util.log_error(error)
-
-    
     def get_path_list(self, path):
         try:
             r = []
@@ -1150,65 +1193,65 @@ class Ui_MainWindow(object):
             return r
         except Exception as error:
             util.log_error(error)
-
+    
     def locate_saves(self, auto):
         try:
             expected_path = os.path.join(os.getcwd(), '.toa-data')
             if os.path.isdir(expected_path) and auto:
-                self.settings['misc']['toa-data-path'] = expected_path
+                self.app_data['misc']['toa-data-path'] = expected_path
             else:
                 if auto:
                     util.show_user("File path.", "You currently don't have your .toa-data folder path set, please select the folder in which your game files are located.")
 
                 dirname = QtWidgets.QFileDialog.getExistingDirectory(None, "Select .toa-data folder.")
-                self.settings['misc']['toa-data-path'] = dirname
+                self.app_data['misc']['toa-data-path'] = dirname
         except Exception as error:
             util.log_error(error)
         
-        util.save_data(self.settings, "resources/data/appdata/data.json")
-    
+        util.save_data(self.app_data, "resources/data/appdata/app-data.json")
+
     def run_unlocker(self):
-        for d in self.settings['unlocker']:
-            if self.settings['unlocker'][d]:
-                self.data_profile_handler(self.settings['misc'][d])
+        for d in self.app_data['unlocker']:
+            if self.app_data['unlocker'][d]:
+                self.data_profile_handler(self.app_data['misc'][d])
                 self.logit('unlocked', d)
-        
+
     def data_profile_handler(self, task):
         try:
-            prof_path = os.path.join(self.settings['misc']['toa-data-path'], 'profile.json')
+            prof_path = os.path.join(self.app_data['misc']['toa-data-path'], 'profile.json')
             self.profile = util.load_data(prof_path)
             if task == 1: # achievements
-                self.profile['achievements'] = self.settings['achievements']
+                self.profile['achievements'] = self.edit_data['achievements']
 
             elif task == 2: # events
-                self.profile['events'] = self.settings['events']
-                self.profile['enemyKnowledge'] = self.settings['enemyKnowledge']
+                self.profile['events'] = self.edit_data['events']
+                self.profile['enemyKnowledge'] = self.edit_data['enemyKnowledge']
             
             elif task == 3: # cgi
-                self.profile['cgSeen'] = self.settings['cgSeen']
-                self.profile['animatedCgSeen'] = self.settings['animatedCgSeen']
+                self.profile['cgSeen'] = self.edit_data['cgSeen']
+                self.profile['animatedCgSeen'] = self.edit_data['animatedCgSeen']
             
             elif task == 4: # max skills
-                self._save['player']['skills'] = self.settings['skills-max']
+                self._save['player']['skills'] = self.edit_data['skills-max']
             
             elif task == 5: # max perk
-                self._save['player']['perks'] = self.settings['perks-max']
+                self._save['player']['perks'] = self.edit_data['perks-max']
                 self.data_profile_handler(7)
 
             elif task == 6: # display description
                 try:
-                    self.sp_desc_bar.setText(str(self.settings['descriptions'][self.current_var]))
+                    self.sp_desc_bar.setText(str(self.edit_data['descriptions'][self.current_var]))
                 except:
                     self.sp_desc_bar.setText("No description.")
 
-            elif task == 7:
-                for self.key in self.settings['skills'].keys():
+            elif task == 7: # add empty
+                for self.key in self.edit_data['skills'].keys():
                     if self.key in self._save['player']['skills'].keys():
                         pass
                     else:
                         self._save['player']['skills'][self.key] = 0
 
-                for self.key in self.settings['perks'].keys():
+                for self.key in self.edit_data['perks'].keys():
                     if self.key in self._save['player']['perks'].keys():
                         pass
                     else:
@@ -1216,20 +1259,29 @@ class Ui_MainWindow(object):
                 
                 if not 'magicPoints' in self._save['player']:
                     self._save['player']['magicPoints'] = 0
-            
+
+                if not 'skillPoints' in self._save['player']:
+                    self._save['player']['skillPoints'] = 0
+
+                if not 'perkPoints' in self._save['player']:
+                    self._save['player']['perkPoints'] = 0
+
+                s = ["race", "hairColor", "eyeColor", "lipFullness", "bootyliciousness", "femininity", "breast",  'jobClass']     
+                for i in s:
+                    if not i in self._save['player']:
+                        self._save['player'][i] = ""           
+
             else:
                 print("No known task was requested.\n")
             
             self.save_save()
             util.save_data(self.profile, prof_path)
-            self.load_current_save(self.settings['misc']['current-save'])
+            self.load_current_save(self.app_data['misc']['current-save'])
             
         except Exception as error:
             util.log_error(error)
-            
 
 if __name__ == "__main__":
-    util = BackEnd()
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
