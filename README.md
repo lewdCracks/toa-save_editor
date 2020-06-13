@@ -3,7 +3,7 @@ Quick way to edit toa-saves while keeping file integrity.
 
 VERSION 6.1:
 
-Download ZIP the linked zip below and extract next to game file. (If you want local content updates to work, a java JDK is required as it makes use of the jar command line tool)
+Download the linked zip file below and extract next to game file. (If you want local content updates to work, a java JDK is required as it makes use of the jar command line tool)
 
 Warning: Some buttons / tabs don't work, the exact things are explained in a discord post under the version-updates channel, short version is that I've stopped supporting this project and I just slapped together the important bits.
 
