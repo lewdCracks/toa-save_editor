@@ -3,7 +3,7 @@ from tkinter import Tk
 from subprocess import Popen
 from bs4 import BeautifulSoup as BS
 from datetime import datetime
-import sys, os, json, logging, tkinter.messagebox, re
+import sys, os, json, logging, tkinter.messagebox, re, zipfile
 
 LOG_FILENAME = "resources/logs/errors.log"
 logging.basicConfig(filename=LOG_FILENAME, level=logging.ERROR)
@@ -58,9 +58,10 @@ class BackEnd(object):
 util = BackEnd()
 
 try:
-    os.system('jar xf TalesOfAndrogyny.jar script/encounters.json')
+    with zipfile.ZipFile("TalesOfAndrogyny.jar", 'r') as zip_ref:
+        zip_ref.extract("script/encounters.json","resources/data/")
 
-    with open("script/encounters.json", 'r') as data:
+    with open("resources/data/script/encounters.json", 'r') as data:
         a = data.readlines()
 
     z = json.load(open("resources/data/appdata/edit-data.json"))
@@ -111,7 +112,7 @@ try:
     c,ac = cg_content()
     nv = event_content()
 
-    z = json.dump(z ,open("resources/data/appdata/edit-data.json", "w+"), indent=4)
+    json.dump(z ,open("resources/data/appdata/edit-data.json", "w+"), indent=4)
 except Exception as error:
     util.log_error(error)
 
