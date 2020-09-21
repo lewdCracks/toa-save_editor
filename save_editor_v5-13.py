@@ -240,6 +240,8 @@ class Ui_MainWindow(object):
 
         self.get_data_location()
 
+        self.open_flag = False
+
         if util.new:
             util.show_user("New Content!", "New content has been detected, use the CGI button to update the pervert screen.")
 
@@ -268,8 +270,8 @@ class Ui_MainWindow(object):
             self.vars_["profile_location"] = '/'.join(self.profile)
             self.found = self.get_data_location()
 
-
             self.save = json.load(open(self.savefile))
+            self.open_flag = True
             print(f"Save file has been successfully loaded.\nCurrent Save: {self.savefile}")
             self.path.append(self.save)
 
@@ -277,7 +279,7 @@ class Ui_MainWindow(object):
                 self.load_data_profile()
                 self.data_profile_handler(6)
             else:
-                pass
+                print('pass')
 
             self.display_variables()
 
@@ -364,7 +366,8 @@ class Ui_MainWindow(object):
 
                 self.path[-1][self.vars_['current_var']] = self.new_val # sets the current var to the casted value bar text
                 self.display_variables()
-                print(f"[Updated]\n\nVariable '{self.vars_['current_var']}': {self.new_val}.")
+                # print(f"[Updated]\n\nVariable '{self.vars_['current_var']}': {self.new_val}.")
+                print("[Updated]\n\nVariable '{:,}': {}.".format(self.vars_['current_var'], self.new_val))
 
             except Exception as error:
                 os.system("cls")
@@ -409,7 +412,6 @@ class Ui_MainWindow(object):
             self.update_path(False)
         else:
             print("Unknow in item_handler.")
-
     
     def display_variables(self):
         self.val_handler.clear() # clears old values
@@ -443,6 +445,8 @@ class Ui_MainWindow(object):
         if self.vars_['data_location'] == None:
             os.system('cls')
             print(f"Could not complete task.\nTask description: {self.task_descriptors[task]}\nReason: missing 'data.json'\n")
+        elif not self.open_flag:
+            print(f"Could not complete task.\nTask description: {self.task_descriptors[task]}\nReason: save file needs to be selected first\n")
         else:
             # re-assign for easy of use
             self.data = self.vars_['data']
