@@ -34,7 +34,7 @@ fn main() -> io::Result<()> {
                 if n.contains("foreground") { // Still need to add a way to get enemy knowledge through scripting
                     let inter = get_val(n);
 
-                    if prof_j["cgSeen"][inter.clone()].to_string().contains("null") {
+                    if prof_j["cgSeen"][inter.clone()].to_string().contains("null") { // Could probably reduce use of .clone
                         prof_j["cgSeen"][inter.clone()] = json!(1);
                         println!("ADDED {}", inter);
                         count += 1;
@@ -45,12 +45,12 @@ fn main() -> io::Result<()> {
                         .to_string()
                         .contains("null")
                     {
-                        prof_j["animatedCgSeen"][inter.clone()] = json!(1);
+                        prof_j["animatedCgSeen"][inter.clone()] = json!(1); // See if json! marco is best way to convert
                         println!("ADDED {}", inter);
                         count += 1;
                     }
                 } else {
-                    // println!("Error ELSE")
+                    // Could add unchanged variable to return 
                 }
             }
             Err(error) => {
@@ -59,11 +59,11 @@ fn main() -> io::Result<()> {
             }
         };
     }
-    println!("Added a total of {} new pieces of content!", count);
+    println!("Added a total of {} new pieces of content!", count); // + {x} amount unchanged
 
     let prof_file = fs::File::create(".toa-data/profile.json");
 
-    serde_json::to_writer(prof_file?, &prof_j).expect("Failed to write!");
+    serde_json::to_writer(prof_file?, &prof_j).expect("Failed to write!"); // Could probably have a match case here instead of just panicking 
 
     pause();
 
@@ -88,8 +88,8 @@ fn return_file(path: &str) -> fs::File {
     } else {
         extract_enc();
         match fs::File::open("script/encounters.json") { // I also don't know if it's standard fare to use match statements everywhere that a Result is returned - like wtf????
-            Ok(n) => return n,
-            Err(error) => {
+            Ok(n) => return n,                           // --  So past me is dumb and people use unwrap if they really think that no error will be thrown-
+            Err(error) => {                              // --- match still seems like such a nice error handling tho~
                 println!("Ran into an error : {}", error);
                 pause();
                 std::process::exit(0)
@@ -99,7 +99,7 @@ fn return_file(path: &str) -> fs::File {
 }
 
 fn extract_enc() {
-    let zipfile = std::fs::File::open("TalesOfAndrogyny.jar").unwrap();
+    let zipfile = std::fs::File::open("TalesOfAndrogyny.jar").unwrap(); // I'm fucking dumb - .unwrap is literally the opposite of .expect
     let mut archive = ZipArchive::new(zipfile).unwrap();
 
     // Basically just a gutted version of "https://github.com/zip-rs/zip/blob/master/examples/extract.rs", still trying to understand everything 
