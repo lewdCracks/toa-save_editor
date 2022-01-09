@@ -262,7 +262,10 @@ class Ui_MainWindow(object):
 
     def open_save(self):
         try:
-            self.savefile, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select Save File", "", ".json Files (*.json)")
+            _path = os.path.join(os.environ.get('APPDATA'),"TalesOfAndrogyny")
+            if not os.path.isdir( _path ): _path = ""
+
+            self.savefile, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Select Save File", _path, ".json Files (*.json)", )
             self.profile = self.savefile.split('/')[:-1]
             self.profile.append('profile.json')
 
