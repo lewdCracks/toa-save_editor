@@ -914,7 +914,7 @@ class Ui_MainWindow(object):
 
         #[ ------------ [ MISC ] ------------ ]
         self.save_box.currentTextChanged.connect( lambda param : self.setup_editor( self.save_box.currentText() ) )
-        self.location_box.currentTextChanged.connect( lambda param : self.advanced_editor.location_set( self.advanced_editor.get_location( self.location_box.currentText() ) ) )
+        self.location_box.currentTextChanged.connect( lambda param : self.advanced_editor.location_set( self.location_box.currentText() ) )
         self.node_box.currentTextChanged.connect( lambda param : self.advanced_editor.node_set( self.node_box.currentText() ) )
         #[ ------------- [ END ] ------------- ]
 
@@ -1080,7 +1080,7 @@ class Ui_MainWindow(object):
         self.perk_spin.setValue( self.advanced_editor.entry_get('perkPoints', int) )
     
     def setup_misc(self):
-        self.populate_box(self.location_box, self.advanced_editor.data['locations'], [], add_first=self.advanced_editor.save_data['mapId'])
+        self.populate_box(self.location_box, self.advanced_editor.data['locations'], [], add_first='DNE')
         self.populate_box(self.node_box, self.advanced_editor.save_data['visitedNodes'], [])
 
     def populate_box(self, box_obj, box_data, ignored, add_first=None):
