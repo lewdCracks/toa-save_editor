@@ -5,8 +5,6 @@ VERSION 6.0 (Semi-Stable)- requires data.json from json_data folder:
 
 VERSION 5.11 (Stable) - requires data.json from json_data folder:
 
-Download the linked zip file below and extract next to game file. 
-
 v6.0 Warning: 6.0 is in a semi-stable state, meaning all but a few things work and one that does work is unstable.
   - The location editor currently works, however it is buggy and the info it uses it not yet up to date, use at your own risk.
   - The node editor currently appears to do nothing, meaning it's doing something I just don't know what and haven't bothered to check and for all I know it's not hooked up.
