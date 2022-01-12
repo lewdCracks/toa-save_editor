@@ -159,7 +159,7 @@ class BaseEditor():
         return list(set(list1+list2))
 
     def merge_data(self, data1, data2):
-        return data2.update(data1)
+        data2.update(data1)
 
     def replace_data(self, key, data):
         res = self.player_data.get(key, False)
@@ -381,11 +381,11 @@ class AdvancedEditor(BaseEditor):
             return False
     
     def update_quest_flags(self, new_flags):
-        self.player_data = self.merge_data(self.player_data['questFlags'], new_flags)
+        self.merge_data(self.player_data['questFlags'], new_flags)
     
     def get_location(self, location_key):
         if self.data_exists:
-            return self.data.get['locations'].get(location_key, False)
+            return self.data['locations'].get(location_key, False)
         else:
             print('[debug] unable to get locations as no external data has been loaded...')
             return False
@@ -421,11 +421,11 @@ class AdvancedEditor(BaseEditor):
             self.encounter_code_set(data['encounterCode'])
             self.update_quest_flags(data['questFlags'])
         else:
-            print(f'[debug] location does not exist : {location_key}')
+            print(f"[debug] location does not exist : location = '{location_key}'")
 
 
 if __name__ == '__main__':
-    loader = Loader(r"C:\Users\junkj\Documents\code\other\g\beep\Tales of Androgyny Win64\.toa-data")
+    loader = Loader(r"C:\Users\junkj\AppData\Roaming\TalesOfAndrogyny")
     loader.build_all_save_data()
     dumper = Dumper(loader.save_paths)
 
@@ -433,7 +433,9 @@ if __name__ == '__main__':
 
     be = AdvancedEditor(*d)
     be.load_external_data('data.json')
-    be.location_set('strange_merchant')
+    loc = be.get_location('strange_merchant-')
+    be.location_set(loc)
+    print(loc)
 
-    dumper.dump('save', be.original_save_data, be.save_data)
+    # dumper.dump('save', be.original_save_data, be.save_data)
 
