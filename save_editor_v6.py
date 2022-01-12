@@ -1008,12 +1008,12 @@ class Ui_MainWindow(object):
     def _dump(self):
         self.dumper.dump(self.advanced_editor.save_name, self.advanced_editor.original_save_data, self.advanced_editor.save_data)
         current_text = self.save_box.currentText()
-        self.retranslateUi(MainWindow, "{current_text}.json", f"Saved changes to '{current_text}.json'")
+        self.retranslateUi(MainWindow, f"{current_text}.json", f"Saved changes to '{current_text}.json'")
     
     def _revert(self):
         self.dumper.revert(self.advanced_editor.save_name)
         current_text = self.save_box.currentText()
-        self.retranslateUi(MainWindow, "{current_text}.json", f"Reverted '{current_text}.json' to it's original state")
+        self.retranslateUi(MainWindow, f"{current_text}.json", f"Reverted '{current_text}.json' to it's original state")
         self.setup_editor(current_text)
 
     def setup_loader(self):
