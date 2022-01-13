@@ -1,11 +1,72 @@
-import json, os, copy
-
 from tkinter import *
 
-import json, logging, tkinter.messagebox, os
+import os, re, json, copy, logging, zipfile, tkinter.messagebox
 
 LOG_FILENAME = "save_editor_errors.log"
 logging.basicConfig(filename=LOG_FILENAME, level=logging.ERROR)
+
+def scrape_data():
+    # still using this absolute spaghetti code cause i cant be bothered to update it
+    try:
+        with zipfile.ZipFile("TalesOfAndrogyny.jar", 'r') as zip_ref:
+            zip_ref.extract("script/encounters.json", os.getcwd())
+
+        with open("script/encounters.json", 'r') as data:
+            a = data.readlines()
+
+        z = json.load(open("data.json"))
+
+        def cg_content():
+            cg = []
+            a_cg = []
+            added = 0
+            for i in a:
+                if 'foreground' in i:
+                    b = i.strip().replace(',','').replace('"', '').replace(':', '').split(' ')[-1]
+                    if b in z['cgSeen'].keys():
+                        pass
+                    else:
+                        z['cgSeen'][b] = 1
+                        print(b)
+                        added+=1
+                    cg.append(b)
+                    
+                    
+                elif "animatedForeground" in i:
+                    b = i.strip().replace(',','').replace('"', '').replace(':', '').split(' ')[-1]
+                    if b in z['animatedCgSeen'].keys():
+                        pass
+                    else:
+                        z['animatedCgSeen'][b] = 1
+                        print(b)
+                        added+=1
+                    a_cg.append(b)
+
+                
+            print(f'Added: {added}')
+            if added >= 1:
+                util.new = True
+            return cg, a_cg
+            
+        def event_content():
+            new_events = []
+            pattern = re.compile('"(.*)":')
+            for i in a:
+                matches = pattern.finditer(i)
+                for m in matches:
+                    mat = m.group(1)
+                    if mat.isupper():
+                        z['events'][mat] = 1
+                        new_events.append(mat)
+
+            return new_events
+
+        c,ac = cg_content()
+        nv = event_content()
+
+        json.dump(z ,open("data.json", "w+"), indent=4)
+    except Exception as error:
+        util.log_error(error)
 
 class BackEnd(object):
     def __init__(self):
