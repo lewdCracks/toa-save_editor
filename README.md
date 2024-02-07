@@ -1,3 +1,6 @@
+# Warning
+None of these work, don't use them, use the CLI version.
+
 # toa-save_editor
 Quick way to edit toa-saves while keeping file integrity.
 
